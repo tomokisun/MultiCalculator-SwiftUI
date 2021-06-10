@@ -7,14 +7,15 @@ let package = Package(
   name: "Package",
   platforms: [
     .macOS(.v11),
-    .iOS(.v14)
+    .iOS(.v14),
   ],
   products: [
     .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
-    .library(name: "Calculator", targets: ["Calculator"])
+    .library(name: "Calculator", targets: ["Calculator"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", .branch("iso"))
+    .package(
+      url: "https://github.com/pointfreeco/swift-composable-architecture.git", .branch("iso"))
   ],
   targets: [
     .target(name: "Calculator"),
@@ -24,6 +25,6 @@ let package = Package(
         "Calculator",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
-    )
+    ),
   ]
 )

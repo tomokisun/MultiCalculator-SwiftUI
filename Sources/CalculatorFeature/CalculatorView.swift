@@ -1,6 +1,6 @@
-import SwiftUI
 import Calculator
 import ComposableArchitecture
+import SwiftUI
 
 public struct CalculatorState: Equatable {
   var count: Double = 0.0
@@ -10,7 +10,7 @@ public struct CalculatorState: Equatable {
     }
   }
   var userIsInTheMiddleOfTyping = false
-  
+
   public init() {}
 }
 
@@ -25,10 +25,11 @@ public struct CalculatorEnvironment {
   public init() {}
 }
 
-public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, CalculatorEnvironment> { state, action, _ in
-  
+public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, CalculatorEnvironment> {
+  state, action, _ in
+
   var calculator = Calculator()
-  
+
   switch action {
   case let .tappedButton(symbol):
     if Int(symbol) != nil {
@@ -59,13 +60,13 @@ public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, Calcul
 
 public struct CalculatorView: View {
   public let store: Store<CalculatorState, CalculatorAction>
-  
+
   public init(
     store: Store<CalculatorState, CalculatorAction>
   ) {
     self.store = store
   }
-  
+
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       GeometryReader { reader in
@@ -83,7 +84,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             ForEach(["7", "8", "9", "×"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -91,7 +92,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             ForEach(["4", "5", "6", "-"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -99,7 +100,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             ForEach(["1", "2", "3", "+"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -107,7 +108,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             CalculatorButton(title: "0", action: { viewStore.send(.tappedButton("0")) })
               .frame(width: reader.size.width / 5 * 3)

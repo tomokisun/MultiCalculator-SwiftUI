@@ -1,5 +1,5 @@
-import SwiftUI
 import CalculatorFeature
+import SwiftUI
 
 @main
 struct AppApp: App {
