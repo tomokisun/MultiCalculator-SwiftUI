@@ -9,7 +9,6 @@ let package = Package(
         .macOS(.v11)
     ],
     dependencies: [
-        .package(url: "https://github.com/realm/SwiftLint", .exact("0.43.1")),
         .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.12.0")),
     ],
     targets: [
