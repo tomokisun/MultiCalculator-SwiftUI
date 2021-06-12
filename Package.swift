@@ -19,6 +19,12 @@ let package = Package(
   ],
   targets: [
     .target(name: "Calculator"),
+    .testTarget(
+      name: "CalculatorTests",
+      dependencies: [
+        "Calculator"
+      ]
+    ),
     .target(
       name: "CalculatorFeature",
       dependencies: [

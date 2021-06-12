@@ -7,7 +7,17 @@
 		<key>Calculator.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>5</integer>
+		</dict>
+		<key>CalculatorFeature.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>CalculatorTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>Package.xcscheme_^#shared#^_</key>
 		<dict>
@@ -17,7 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>Calculator</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CalculatorFeature</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CalculatorTests</key>
 		<dict>
 			<key>primary</key>
 			<true/>
