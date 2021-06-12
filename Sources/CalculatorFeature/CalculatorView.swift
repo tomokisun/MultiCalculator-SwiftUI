@@ -126,6 +126,7 @@ public struct CalculatorView: View {
           }
           .frame(height: reader.size.width / 5)
         }
+        .background(Color(.systemBackground))
       }
     }
   }
