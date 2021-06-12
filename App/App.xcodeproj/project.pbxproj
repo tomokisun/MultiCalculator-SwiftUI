@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		608A1D4F2674A683009132CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6099AFCC26725B0F00CBB06B /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6099AFCF26725B0F00CBB06B /* AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppApp.swift; sourceTree = "<group>"; };
 		6099AFD326725B0F00CBB06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +60,7 @@
 		6099AFCE26725B0F00CBB06B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				608A1D4F2674A683009132CE /* Info.plist */,
 				6099AFCF26725B0F00CBB06B /* AppApp.swift */,
 				6099AFD326725B0F00CBB06B /* Assets.xcassets */,
 				6099AFD526725B0F00CBB06B /* Preview Content */,
@@ -281,6 +283,11 @@
 				DEVELOPMENT_TEAM = AV9FQ3YF56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "マルチ計算機";
+				INFOPLIST_KEY_CFBundleExecutable = App;
+				INFOPLIST_KEY_CFBundleName = App;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -291,8 +298,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.App";
+				MARKETING_VERSION = 2021.6.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.multi-calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -311,6 +318,11 @@
 				DEVELOPMENT_TEAM = AV9FQ3YF56;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "マルチ計算機";
+				INFOPLIST_KEY_CFBundleExecutable = App;
+				INFOPLIST_KEY_CFBundleName = App;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -321,8 +333,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.App";
+				MARKETING_VERSION = 2021.6.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.multi-calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
