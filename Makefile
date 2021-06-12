@@ -3,7 +3,7 @@ PLATFORM_IOS = iOS Simulator,name=iPhone 12 Pro,OS=14.4
 test:
 	@xcodebuild test \
 		-workspace MultiCalculator.xcworkspace \
-		-scheme App \
+		-scheme Staging \
 		-destination platform="$(PLATFORM_IOS)"
 
 format:
