@@ -43,7 +43,7 @@ platform :ios do
 
     build_app(
       workspace: "MultiCalculator.xcworkspace",
-      scheme: "App",
+      scheme: "Production",
       export_options: {
         method: "app-store",
       }
@@ -61,13 +61,13 @@ platform :ios do
     shortVersionString = "#{today.year}.#{today.month}.#{today.day}"
 
     set_info_plist_value(
-      path: './App/App/Info.plist',
+      path: './App/Production/Info.plist',
       key: 'CFBundleShortVersionString',
       value: shortVersionString
     )
 
     set_info_plist_value(
-      path: './App/App/Info.plist',
+      path: './App/Production/Info.plist',
       key: 'CFBundleVersion',
       value: `git rev-parse --short HEAD`.to_i(16).to_s
     )

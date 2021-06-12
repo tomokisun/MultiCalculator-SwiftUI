@@ -21,7 +21,7 @@ public struct CalculatorButton: View {
           .frame(maxWidth: .infinity, maxHeight: .infinity)
           .foregroundColor(.white)
           .background(Color.secondary)
-          .cornerRadius(.infinity)
+          .cornerRadius(10000)
       })
   }
 }

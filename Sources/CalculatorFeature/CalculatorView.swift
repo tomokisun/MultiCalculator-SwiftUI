@@ -79,7 +79,7 @@ public struct CalculatorView: View {
   public var body: some View {
     GeometryReader { reader in
       WithViewStore(self.store) { viewStore in
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 8) {
           Spacer()
           Text(viewStore.displayNumber)
             .font(.largeTitle)
