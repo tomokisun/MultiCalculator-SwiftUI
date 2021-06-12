@@ -6,3 +6,5 @@ App/.swiftpm
 xcuserdata/
 vendor/bundle
 fastlane/report.xml
+.swiftpm/xcode/xcuserdata
+
