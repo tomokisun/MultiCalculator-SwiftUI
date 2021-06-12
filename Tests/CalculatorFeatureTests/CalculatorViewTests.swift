@@ -24,7 +24,10 @@ class CalculatorViewTests: XCTestCase {
             )
           )
           .colorScheme(colorScheme),
-          as: .image(layout: .device(config: config)),
+          as: .image(
+            precision: 0.9,
+            layout: .device(config: config)
+          ),
           named: name + "\(colorScheme)"
         )
       }
