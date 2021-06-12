@@ -5,8 +5,8 @@
 //  Created by 築山朋紀 on 2021/06/12.
 //
 
-import SwiftUI
 import CalculatorFeature
+import SwiftUI
 
 @main
 struct StagingApp: App {
