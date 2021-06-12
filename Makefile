@@ -14,3 +14,8 @@ format:
 		./App/ \
 		./Package.swift \
 		./Sources/
+
+licenses:
+	swift run -c release \
+		--package-path Tools license-plist \
+		--output-path App/Production/Settings.bundle
