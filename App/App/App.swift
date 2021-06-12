@@ -2,7 +2,7 @@ import CalculatorFeature
 import SwiftUI
 
 @main
-struct AppApp: App {
+struct MultiCalculatorApp: App {
   var body: some Scene {
     WindowGroup {
       CalculatorView(

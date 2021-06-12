@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600B6C962674F229007FC594 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 600B6C952674F229007FC594 /* Launch Screen.storyboard */; };
 		6013FD7B2672608C00718A55 /* CalculatorFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 6013FD7A2672608C00718A55 /* CalculatorFeature */; };
-		6099AFD026725B0F00CBB06B /* AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6099AFCF26725B0F00CBB06B /* AppApp.swift */; };
+		6099AFD026725B0F00CBB06B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6099AFCF26725B0F00CBB06B /* App.swift */; };
 		6099AFD426725B0F00CBB06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6099AFD326725B0F00CBB06B /* Assets.xcassets */; };
 		6099AFD726725B0F00CBB06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6099AFD626725B0F00CBB06B /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		600B6C952674F229007FC594 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		608A1D4F2674A683009132CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6099AFCC26725B0F00CBB06B /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6099AFCF26725B0F00CBB06B /* AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppApp.swift; sourceTree = "<group>"; };
+		6099AFCF26725B0F00CBB06B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		6099AFD326725B0F00CBB06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6099AFD626725B0F00CBB06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,9 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				608A1D4F2674A683009132CE /* Info.plist */,
-				6099AFCF26725B0F00CBB06B /* AppApp.swift */,
+				6099AFCF26725B0F00CBB06B /* App.swift */,
 				6099AFD326725B0F00CBB06B /* Assets.xcassets */,
 				6099AFD526725B0F00CBB06B /* Preview Content */,
+				600B6C952674F229007FC594 /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				600B6C962674F229007FC594 /* Launch Screen.storyboard in Resources */,
 				6099AFD726725B0F00CBB06B /* Preview Assets.xcassets in Resources */,
 				6099AFD426725B0F00CBB06B /* Assets.xcassets in Resources */,
 			);
@@ -149,7 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6099AFD026725B0F00CBB06B /* AppApp.swift in Sources */,
+				6099AFD026725B0F00CBB06B /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,9 +292,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "マルチ計算機";
 				INFOPLIST_KEY_CFBundleExecutable = App;
 				INFOPLIST_KEY_CFBundleName = App;
-				INFOPLIST_KEY_CFBundleVersion = 29098921;
+				INFOPLIST_KEY_CFBundleVersion = 79005446;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -326,9 +331,10 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "マルチ計算機";
 				INFOPLIST_KEY_CFBundleExecutable = App;
 				INFOPLIST_KEY_CFBundleName = App;
-				INFOPLIST_KEY_CFBundleVersion = 29098921;
+				INFOPLIST_KEY_CFBundleVersion = 79005446;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
