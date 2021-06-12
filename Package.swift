@@ -12,7 +12,7 @@ let package = Package(
   products: [
     .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
     .library(name: "Calculator", targets: ["Calculator"]),
-    .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"])
+    .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
   ],
   dependencies: [
     .package(
@@ -52,6 +52,6 @@ let package = Package(
       dependencies: [
         .product(name: "SnapshotTesting", package: "SnapshotTesting")
       ]
-    )
+    ),
   ]
 )
