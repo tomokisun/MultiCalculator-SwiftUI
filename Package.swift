@@ -17,7 +17,8 @@ let package = Package(
     .package(
       url: "https://github.com/pointfreeco/swift-composable-architecture.git", .branch("iso")),
     .package(
-      name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", .exact("1.8.2")),
+      name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+      .exact("1.8.2")),
   ],
   targets: [
     .target(name: "Calculator"),
@@ -38,11 +39,11 @@ let package = Package(
       name: "CalculatorFeatureTests",
       dependencies: [
         "CalculatorFeature",
-        .product(name: "SnapshotTesting", package: "SnapshotTesting")
+        .product(name: "SnapshotTesting", package: "SnapshotTesting"),
       ],
       exclude: [
         "__Snapshots__"
       ]
-    )
+    ),
   ]
 )
