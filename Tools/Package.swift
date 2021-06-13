@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "Tools",
-    platforms: [
-        .macOS(.v11)
-    ],
-    dependencies: [
-        .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.12.0")),
-    ],
-    targets: [
-        .target(name: "Tools", path: "")
-    ]
+  name: "Tools",
+  platforms: [
+    .macOS(.v11)
+  ],
+  dependencies: [
+    .package(url: "https://github.com/mono0926/LicensePlist", .exact("3.12.0"))
+  ],
+  targets: [
+    .target(name: "Tools", path: "")
+  ]
 )
