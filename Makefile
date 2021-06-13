@@ -13,7 +13,8 @@ format:
 		--recursive \
 		./App/ \
 		./Package.swift \
-		./Sources/
+		./Sources/ \
+		./Tools
 
 licenses:
 	swift run -c release \
