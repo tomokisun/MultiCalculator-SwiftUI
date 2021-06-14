@@ -1,10 +1,10 @@
-import SwiftUI
 import CalculatorFeature
 import ComposableArchitecture
+import SwiftUI
 
 public struct MultiCalculatorState: Equatable {
   public var calculator: CalculatorState
-  
+
   public init(
     calculator: CalculatorState = .init()
   ) {
@@ -18,8 +18,7 @@ public enum MultiCalculatorAction: Equatable {
 }
 
 public struct MultiCalculatorEnvironment {
-  public static let noop = Self(
-  )
+  public static let noop = Self()
 }
 
 extension MultiCalculatorEnvironment {
@@ -28,13 +27,15 @@ extension MultiCalculatorEnvironment {
   }
 }
 
-public let multiCalculatorReducer = Reducer<MultiCalculatorState, MultiCalculatorAction, MultiCalculatorEnvironment>.combine(
+public let multiCalculatorReducer = Reducer<
+  MultiCalculatorState, MultiCalculatorAction, MultiCalculatorEnvironment
+>.combine(
   calculatorReducer.pullback(
     state: \.calculator,
     action: /MultiCalculatorAction.calculator,
     environment: \.calculator
   ),
-  
+
   Reducer { state, action, environment in
     switch action {
     case .onAppear:
@@ -47,13 +48,13 @@ public let multiCalculatorReducer = Reducer<MultiCalculatorState, MultiCalculato
 
 public struct MultiCalculatorView: View {
   let store: Store<MultiCalculatorState, MultiCalculatorAction>
-  
+
   public init(
     store: Store<MultiCalculatorState, MultiCalculatorAction>
   ) {
     self.store = store
   }
-  
+
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       Text("")

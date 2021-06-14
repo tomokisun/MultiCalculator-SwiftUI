@@ -14,7 +14,7 @@ let package = Package(
     .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
     .library(name: "MultiCalculatorFeature", targets: ["MultiCalculatorFeature"]),
     .library(name: "SettingFeature", targets: ["SettingFeature"]),
-    
+
     .library(name: "Calculator", targets: ["Calculator"]),
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
     .library(name: "Build", targets: ["Build"]),
