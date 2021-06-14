@@ -20,6 +20,7 @@ public enum MultiCalculatorAction: Equatable {
 
 public struct MultiCalculatorEnvironment {
   public static let noop = Self()
+  public init() {}
 }
 
 extension MultiCalculatorEnvironment {
