@@ -10,14 +10,15 @@ let package = Package(
     .iOS(.v14),
   ],
   products: [
+    .library(name: "AppFeature", targets: ["AppFeature"]),
+    .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
+    .library(name: "MultiCalculatorFeature", targets: ["MultiCalculatorFeature"]),
+    .library(name: "SettingFeature", targets: ["SettingFeature"]),
+    
     .library(name: "Calculator", targets: ["Calculator"]),
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
     .library(name: "Build", targets: ["Build"]),
     .library(name: "Styleguide", targets: ["Styleguide"]),
-
-    .library(name: "AppFeature", targets: ["AppFeature"]),
-    .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
-    .library(name: "SettingFeature", targets: ["SettingFeature"]),
   ],
   dependencies: [
     .package(
@@ -33,13 +34,6 @@ let package = Package(
         "CalculatorFeature",
         "SettingFeature",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
-      ]
-    ),
-    .target(name: "Calculator"),
-    .testTarget(
-      name: "CalculatorTests",
-      dependencies: [
-        "Calculator"
       ]
     ),
     .target(
@@ -61,12 +55,19 @@ let package = Package(
       ]
     ),
     .target(
-      name: "SnapshotTestHelper",
+      name: "MultiCalculatorFeature",
       dependencies: [
-        .product(name: "SnapshotTesting", package: "SnapshotTesting")
+        "CalculatorFeature",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
-    .target(name: "Build"),
+    .target(name: "Calculator"),
+    .testTarget(
+      name: "CalculatorTests",
+      dependencies: [
+        "Calculator"
+      ]
+    ),
     .target(
       name: "SettingFeature",
       dependencies: [
@@ -75,6 +76,13 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
+    .target(
+      name: "SnapshotTestHelper",
+      dependencies: [
+        .product(name: "SnapshotTesting", package: "SnapshotTesting")
+      ]
+    ),
+    .target(name: "Build"),
     .target(name: "Styleguide"),
   ]
 )
