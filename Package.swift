@@ -14,6 +14,7 @@ let package = Package(
     .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
     .library(name: "Calculator", targets: ["Calculator"]),
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
+    .library(name: "Build", targets: ["Build"]),
   ],
   dependencies: [
     .package(
@@ -61,5 +62,6 @@ let package = Package(
         .product(name: "SnapshotTesting", package: "SnapshotTesting")
       ]
     ),
+    .target(name: "Build")
   ]
 )
