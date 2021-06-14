@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		34FF443A2677991A0000DE28 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 34FF44392677991A0000DE28 /* AppFeature */; };
+		34FF44442677B69A0000DE28 /* MultiCalculatorPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FF44432677B69A0000DE28 /* MultiCalculatorPreviewApp.swift */; };
+		34FF44482677B69C0000DE28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FF44472677B69C0000DE28 /* Assets.xcassets */; };
+		34FF44522677B6ED0000DE28 /* MultiCalculatorFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 34FF44512677B6ED0000DE28 /* MultiCalculatorFeature */; };
 		6035819B2674F9040065CE90 /* StagingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035819A2674F9040065CE90 /* StagingApp.swift */; };
 		6035819F2674F9050065CE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6035819E2674F9050065CE90 /* Assets.xcassets */; };
 		603581A22674F9050065CE90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 603581A12674F9050065CE90 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34FF44412677B69A0000DE28 /* MultiCalculatorPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiCalculatorPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34FF44432677B69A0000DE28 /* MultiCalculatorPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiCalculatorPreviewApp.swift; sourceTree = "<group>"; };
+		34FF44472677B69C0000DE28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34FF444C2677B69C0000DE28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		603581972674F9040065CE90 /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6035819A2674F9040065CE90 /* StagingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagingApp.swift; sourceTree = "<group>"; };
 		6035819E2674F9050065CE90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -22,6 +29,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		34FF443E2677B69A0000DE28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34FF44522677B6ED0000DE28 /* MultiCalculatorFeature in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		603581942674F9040065CE90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,9 +48,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34FF44422677B69A0000DE28 /* MultiCalculatorPreview */ = {
+			isa = PBXGroup;
+			children = (
+				34FF44432677B69A0000DE28 /* MultiCalculatorPreviewApp.swift */,
+				34FF44472677B69C0000DE28 /* Assets.xcassets */,
+				34FF444C2677B69C0000DE28 /* Info.plist */,
+			);
+			path = MultiCalculatorPreview;
+			sourceTree = "<group>";
+		};
+		34FF44502677B6BF0000DE28 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				34FF44422677B69A0000DE28 /* MultiCalculatorPreview */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
 		6035818E2674F9040065CE90 = {
 			isa = PBXGroup;
 			children = (
+				34FF44502677B6BF0000DE28 /* Previews */,
 				603581992674F9040065CE90 /* Staging */,
 				603581982674F9040065CE90 /* Products */,
 				603581C82674FA260065CE90 /* Frameworks */,
@@ -46,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				603581972674F9040065CE90 /* Staging.app */,
+				34FF44412677B69A0000DE28 /* MultiCalculatorPreview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +114,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		34FF44402677B69A0000DE28 /* MultiCalculatorPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34FF444D2677B69C0000DE28 /* Build configuration list for PBXNativeTarget "MultiCalculatorPreview" */;
+			buildPhases = (
+				34FF443D2677B69A0000DE28 /* Sources */,
+				34FF443E2677B69A0000DE28 /* Frameworks */,
+				34FF443F2677B69A0000DE28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiCalculatorPreview;
+			packageProductDependencies = (
+				34FF44512677B6ED0000DE28 /* MultiCalculatorFeature */,
+			);
+			productName = MultiCalculatorPreview;
+			productReference = 34FF44412677B69A0000DE28 /* MultiCalculatorPreview.app */;
+			productType = "com.apple.product-type.application";
+		};
 		603581962674F9040065CE90 /* Staging */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 603581A62674F9050065CE90 /* Build configuration list for PBXNativeTarget "Staging" */;
@@ -108,6 +163,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					34FF44402677B69A0000DE28 = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					603581962674F9040065CE90 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -127,11 +185,20 @@
 			projectRoot = "";
 			targets = (
 				603581962674F9040065CE90 /* Staging */,
+				34FF44402677B69A0000DE28 /* MultiCalculatorPreview */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		34FF443F2677B69A0000DE28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34FF44482677B69C0000DE28 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		603581952674F9040065CE90 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,6 +211,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		34FF443D2677B69A0000DE28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34FF44442677B69A0000DE28 /* MultiCalculatorPreviewApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		603581932674F9040065CE90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +230,50 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		34FF444E2677B69C0000DE28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = AV9FQ3YF56;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Previews/MultiCalculatorPreview/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.MultiCalculatorPreview";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34FF444F2677B69C0000DE28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = AV9FQ3YF56;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Previews/MultiCalculatorPreview/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.MultiCalculatorPreview";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		603581A42674F9050065CE90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -318,6 +437,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		34FF444D2677B69C0000DE28 /* Build configuration list for PBXNativeTarget "MultiCalculatorPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34FF444E2677B69C0000DE28 /* Debug */,
+				34FF444F2677B69C0000DE28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		603581922674F9040065CE90 /* Build configuration list for PBXProject "Staging" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -342,6 +470,10 @@
 		34FF44392677991A0000DE28 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
+		};
+		34FF44512677B6ED0000DE28 /* MultiCalculatorFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MultiCalculatorFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

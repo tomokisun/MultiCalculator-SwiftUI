@@ -3,17 +3,17 @@ import ComposableArchitecture
 import SwiftUI
 
 public struct MultiCalculatorState: Equatable {
-  public var calculator: CalculatorState
-
-  public init(
-    calculator: CalculatorState = .init()
-  ) {
-    self.calculator = calculator
-  }
+  public var calculator1 = CalculatorState()
+  public var calculator2 = CalculatorState()
+  public var calculator3 = CalculatorState()
+  
+  public init() {}
 }
 
 public enum MultiCalculatorAction: Equatable {
-  case calculator(CalculatorAction)
+  case calculator1(CalculatorAction)
+  case calculator2(CalculatorAction)
+  case calculator3(CalculatorAction)
   case onAppear
 }
 
@@ -31,8 +31,20 @@ public let multiCalculatorReducer = Reducer<
   MultiCalculatorState, MultiCalculatorAction, MultiCalculatorEnvironment
 >.combine(
   calculatorReducer.pullback(
-    state: \.calculator,
-    action: /MultiCalculatorAction.calculator,
+    state: \.calculator1,
+    action: /MultiCalculatorAction.calculator1,
+    environment: \.calculator
+  ),
+  
+  calculatorReducer.pullback(
+    state: \.calculator2,
+    action: /MultiCalculatorAction.calculator2,
+    environment: \.calculator
+  ),
+  
+  calculatorReducer.pullback(
+    state: \.calculator3,
+    action: /MultiCalculatorAction.calculator3,
     environment: \.calculator
   ),
 
@@ -40,7 +52,11 @@ public let multiCalculatorReducer = Reducer<
     switch action {
     case .onAppear:
       return .none
-    case .calculator:
+    case .calculator1:
+      return .none
+    case .calculator2:
+      return .none
+    case.calculator3:
       return .none
     }
   }
@@ -56,9 +72,29 @@ public struct MultiCalculatorView: View {
   }
 
   public var body: some View {
-    WithViewStore(self.store) { viewStore in
-      Text("")
-        .onAppear { viewStore.send(.onAppear) }
+    GeometryReader { geometry in
+      WithViewStore(self.store) { viewStore in
+        HStack {
+          CalculatorView(
+            store: self.store.scope(
+              state: \.calculator1,
+              action: MultiCalculatorAction.calculator1
+            )
+          )
+          CalculatorView(
+            store: self.store.scope(
+              state: \.calculator2,
+              action: MultiCalculatorAction.calculator2
+            )
+          )
+          CalculatorView(
+            store: self.store.scope(
+              state: \.calculator3,
+              action: MultiCalculatorAction.calculator3
+            )
+          )
+        }
+      }
     }
   }
 }
