@@ -2,9 +2,9 @@ import SwiftUI
 
 public struct DeviceStateModifier: ViewModifier {
   @State var state = DeviceState.default
-  
+
   public init() {}
-  
+
   public func body(content: Content) -> some View {
     content
       .onAppear()

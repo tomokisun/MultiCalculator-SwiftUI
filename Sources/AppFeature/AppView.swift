@@ -1,8 +1,8 @@
 import MultiCalculatorFeature
 import ComposableArchitecture
+import DeviceStateModifier
 import SettingFeature
 import SwiftUI
-import DeviceStateModifier
 
 public struct AppState: Equatable {
   public var multiCalculator: MultiCalculatorState = .init()
