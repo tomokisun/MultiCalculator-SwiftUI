@@ -1,8 +1,8 @@
 import Calculator
 import ComposableArchitecture
+import DeviceStateModifier
 import SwiftUI
 import UIKit
-import DeviceStateModifier
 
 extension String {
   var formatDouble: String {
@@ -89,11 +89,11 @@ public struct CalculatorView: View {
             .font(.largeTitle)
             .bold()
             .frame(maxWidth: .infinity, alignment: .trailing)
-          
+
           if deviceState.orientation.isPortrait {
             Spacer()
           }
-          
+
           HStack {
             ForEach(["AC", "±", "％", "÷"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })

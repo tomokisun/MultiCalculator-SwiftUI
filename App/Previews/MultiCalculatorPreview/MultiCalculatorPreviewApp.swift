@@ -1,7 +1,7 @@
 import ComposableArchitecture
+import DeviceStateModifier
 import MultiCalculatorFeature
 import SwiftUI
-import DeviceStateModifier
 
 @main
 struct MultiCalculatorPreviewApp: App {
