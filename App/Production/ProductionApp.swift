@@ -1,24 +1,34 @@
-//
-//  ProductionApp.swift
-//  Production
-//
-//  Created by 築山朋紀 on 2021/06/12.
-//
-
-import CalculatorFeature
+import AppFeature
 import SwiftUI
+import Build
+import ComposableArchitecture
 
 @main
-struct ProductionApp: App {
+struct StagingApp: App {
+  
+  let store = Store(
+    initialState: .init(),
+    reducer: appReducer,
+    environment: .live
+  )
+  
   var body: some Scene {
     WindowGroup {
-      CalculatorView(
-        store: .init(
-          initialState: .init(),
-          reducer: calculatorReducer,
-          environment: .init()
-        )
-      )
+      AppView(store: store)
     }
   }
+}
+
+extension AppEnvironment {
+  static let live: Self = {
+    let build = Build.live
+    return Self(
+      setUserInterfaceStyle: { userInterfaceStyle in
+        .fireAndForget {
+          UIApplication.shared.windows.first?.overrideUserInterfaceStyle = userInterfaceStyle
+        }
+      },
+      build: build
+    )
+  }()
 }
