@@ -1,17 +1,17 @@
 import AppFeature
-import SwiftUI
 import Build
 import ComposableArchitecture
+import SwiftUI
 
 @main
 struct StagingApp: App {
-  
+
   let store = Store(
     initialState: .init(),
     reducer: appReducer,
     environment: .live
   )
-  
+
   var body: some Scene {
     WindowGroup {
       AppView(store: store)

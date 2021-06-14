@@ -1,6 +1,6 @@
-import SwiftUI
 import CalculatorFeature
 import ComposableArchitecture
+import SwiftUI
 
 public struct MultiCalculatorState: Equatable {
   public var calculator1 = CalculatorState()
@@ -18,8 +18,7 @@ public enum MultiCalculatorAction: Equatable {
 }
 
 public struct MultiCalculatorEnvironment {
-  public static let noop = Self(
-  )
+  public static let noop = Self()
 }
 
 extension MultiCalculatorEnvironment {
@@ -28,7 +27,9 @@ extension MultiCalculatorEnvironment {
   }
 }
 
-public let multiCalculatorReducer = Reducer<MultiCalculatorState, MultiCalculatorAction, MultiCalculatorEnvironment>.combine(
+public let multiCalculatorReducer = Reducer<
+  MultiCalculatorState, MultiCalculatorAction, MultiCalculatorEnvironment
+>.combine(
   calculatorReducer.pullback(
     state: \.calculator1,
     action: /MultiCalculatorAction.calculator1,
@@ -46,7 +47,7 @@ public let multiCalculatorReducer = Reducer<MultiCalculatorState, MultiCalculato
     action: /MultiCalculatorAction.calculator3,
     environment: \.calculator
   ),
-  
+
   Reducer { state, action, environment in
     switch action {
     case .onAppear:
@@ -63,13 +64,13 @@ public let multiCalculatorReducer = Reducer<MultiCalculatorState, MultiCalculato
 
 public struct MultiCalculatorView: View {
   let store: Store<MultiCalculatorState, MultiCalculatorAction>
-  
+
   public init(
     store: Store<MultiCalculatorState, MultiCalculatorAction>
   ) {
     self.store = store
   }
-  
+
   public var body: some View {
     GeometryReader { geometry in
       WithViewStore(self.store) { viewStore in
