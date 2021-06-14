@@ -1,6 +1,7 @@
 import Calculator
 import ComposableArchitecture
 import SwiftUI
+import UIKit
 
 extension String {
   var formatDouble: String {
@@ -20,6 +21,7 @@ public struct CalculatorState: Equatable {
     number.formatDouble
   }
   var userIsInTheMiddleOfTyping = false
+  public var userInterfaceOrientation: UIInterfaceOrientation = .unknown
 
   public init() {}
 }
