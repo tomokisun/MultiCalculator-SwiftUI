@@ -6,7 +6,7 @@ public struct MultiCalculatorState: Equatable {
   public var calculator1 = CalculatorState()
   public var calculator2 = CalculatorState()
   public var calculator3 = CalculatorState()
-  
+
   public init() {}
 }
 
@@ -35,13 +35,13 @@ public let multiCalculatorReducer = Reducer<
     action: /MultiCalculatorAction.calculator1,
     environment: \.calculator
   ),
-  
+
   calculatorReducer.pullback(
     state: \.calculator2,
     action: /MultiCalculatorAction.calculator2,
     environment: \.calculator
   ),
-  
+
   calculatorReducer.pullback(
     state: \.calculator3,
     action: /MultiCalculatorAction.calculator3,
@@ -56,7 +56,7 @@ public let multiCalculatorReducer = Reducer<
       return .none
     case .calculator2:
       return .none
-    case.calculator3:
+    case .calculator3:
       return .none
     }
   }
