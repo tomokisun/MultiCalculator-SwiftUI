@@ -10,11 +10,12 @@ let package = Package(
     .iOS(.v14),
   ],
   products: [
-    .library(name: "AppFeature", targets: ["AppFeature"]),
-    .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
     .library(name: "Calculator", targets: ["Calculator"]),
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
     .library(name: "Build", targets: ["Build"]),
+    
+    .library(name: "AppFeature", targets: ["AppFeature"]),
+    .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
   ],
   dependencies: [
     .package(
