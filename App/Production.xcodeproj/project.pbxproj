@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34FF443C2677B27C0000DE28 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 34FF443B2677B27C0000DE28 /* AppFeature */; };
 		603581B82674F9820065CE90 /* ProductionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603581B72674F9820065CE90 /* ProductionApp.swift */; };
 		603581BC2674F9830065CE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 603581BB2674F9830065CE90 /* Assets.xcassets */; };
 		603581BF2674F9830065CE90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 603581BE2674F9830065CE90 /* Preview Assets.xcassets */; };
-		603581CD2674FA2F0065CE90 /* CalculatorFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 603581CC2674FA2F0065CE90 /* CalculatorFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				603581CD2674FA2F0065CE90 /* CalculatorFeature in Frameworks */,
+				34FF443C2677B27C0000DE28 /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +93,7 @@
 			);
 			name = Production;
 			packageProductDependencies = (
-				603581CC2674FA2F0065CE90 /* CalculatorFeature */,
+				34FF443B2677B27C0000DE28 /* AppFeature */,
 			);
 			productName = Production;
 			productReference = 603581B42674F9820065CE90 /* Production.app */;
@@ -343,9 +343,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		603581CC2674FA2F0065CE90 /* CalculatorFeature */ = {
+		34FF443B2677B27C0000DE28 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = CalculatorFeature;
+			productName = AppFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

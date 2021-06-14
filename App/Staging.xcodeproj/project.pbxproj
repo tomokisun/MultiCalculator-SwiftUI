@@ -11,7 +11,6 @@
 		6035819B2674F9040065CE90 /* StagingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035819A2674F9040065CE90 /* StagingApp.swift */; };
 		6035819F2674F9050065CE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6035819E2674F9050065CE90 /* Assets.xcassets */; };
 		603581A22674F9050065CE90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 603581A12674F9050065CE90 /* Preview Assets.xcassets */; };
-		603581CA2674FA260065CE90 /* CalculatorFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 603581C92674FA260065CE90 /* CalculatorFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				603581CA2674FA260065CE90 /* CalculatorFeature in Frameworks */,
 				34FF443A2677991A0000DE28 /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +93,6 @@
 			);
 			name = Staging;
 			packageProductDependencies = (
-				603581C92674FA260065CE90 /* CalculatorFeature */,
 				34FF44392677991A0000DE28 /* AppFeature */,
 			);
 			productName = Staging;
@@ -345,10 +342,6 @@
 		34FF44392677991A0000DE28 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
-		};
-		603581C92674FA260065CE90 /* CalculatorFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CalculatorFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

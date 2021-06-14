@@ -85,6 +85,7 @@ public struct CalculatorView: View {
           Spacer()
           Text(viewStore.displayNumber)
             .font(.largeTitle)
+            .bold()
             .frame(maxWidth: .infinity, alignment: .trailing)
             .padding()
           Spacer()
