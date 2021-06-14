@@ -10,6 +10,7 @@ let package = Package(
     .iOS(.v14),
   ],
   products: [
+    .library(name: "AppFeature", targets: ["AppFeature"]),
     .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
     .library(name: "Calculator", targets: ["Calculator"]),
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
@@ -22,6 +23,13 @@ let package = Package(
       .exact("1.8.2")),
   ],
   targets: [
+    .target(
+      name: "AppFeature",
+      dependencies: [
+        "CalculatorFeature",
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
     .target(name: "Calculator"),
     .testTarget(
       name: "CalculatorTests",
