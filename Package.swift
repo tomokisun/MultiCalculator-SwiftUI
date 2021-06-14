@@ -20,6 +20,7 @@ let package = Package(
     .library(name: "Build", targets: ["Build"]),
     .library(name: "Styleguide", targets: ["Styleguide"]),
     .library(name: "DeviceStateModifier", targets: ["DeviceStateModifier"]),
+    .library(name: "FeedbackGeneratorClient", targets: ["FeedbackGeneratorClient"]),
   ],
   dependencies: [
     .package(
@@ -89,5 +90,11 @@ let package = Package(
     .target(name: "Build"),
     .target(name: "Styleguide"),
     .target(name: "DeviceStateModifier"),
+    .target(
+      name: "FeedbackGeneratorClient",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+      ]
+    ),
   ]
 )
