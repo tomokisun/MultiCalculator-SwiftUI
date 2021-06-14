@@ -32,7 +32,7 @@ let package = Package(
     .target(
       name: "AppFeature",
       dependencies: [
-        "CalculatorFeature",
+        "MultiCalculatorFeature",
         "SettingFeature",
         "DeviceStateModifier",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
@@ -50,6 +50,7 @@ let package = Package(
       dependencies: [
         "CalculatorFeature",
         "SnapshotTestHelper",
+        "DeviceStateModifier",
         .product(name: "SnapshotTesting", package: "SnapshotTesting"),
       ],
       exclude: [
@@ -60,6 +61,7 @@ let package = Package(
       name: "MultiCalculatorFeature",
       dependencies: [
         "CalculatorFeature",
+        "DeviceStateModifier",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

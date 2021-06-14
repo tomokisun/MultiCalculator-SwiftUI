@@ -1,6 +1,7 @@
 import ComposableArchitecture
 import MultiCalculatorFeature
 import SwiftUI
+import DeviceStateModifier
 
 @main
 struct MultiCalculatorPreviewApp: App {
@@ -13,6 +14,7 @@ struct MultiCalculatorPreviewApp: App {
           environment: .noop
         )
       )
+      .modifier(DeviceStateModifier())
     }
   }
 }

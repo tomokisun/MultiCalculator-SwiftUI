@@ -1,29 +1,29 @@
-import CalculatorFeature
+import MultiCalculatorFeature
 import ComposableArchitecture
 import DeviceStateModifier
 import SettingFeature
 import SwiftUI
 
 public struct AppState: Equatable {
-  public var calculator: CalculatorState
+  public var multiCalculator: MultiCalculatorState = .init()
   public var setting: SettingState
 
   public init(
-    calculator: CalculatorState = .init(),
+    multiCalculator: MultiCalculatorState = .init(),
     setting: SettingState = .init()
   ) {
-    self.calculator = calculator
+    self.multiCalculator = multiCalculator
     self.setting = setting
   }
 }
 
 public enum AppAction: Equatable {
-  case calculator(CalculatorAction)
+  case multiCalculator(MultiCalculatorAction)
   case setting(SettingAction)
 }
 
 extension AppEnvironment {
-  var calculator: CalculatorEnvironment {
+  var multiCalculator: MultiCalculatorEnvironment {
     .init()
   }
   var setting: SettingEnvironment {
@@ -34,11 +34,11 @@ extension AppEnvironment {
 }
 
 public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
-  calculatorReducer
+  multiCalculatorReducer
     .pullback(
-      state: \AppState.calculator,
-      action: /AppAction.calculator,
-      environment: \.calculator
+      state: \AppState.multiCalculator,
+      action: /AppAction.multiCalculator,
+      environment: \.multiCalculator
     ),
 
   settingReducer
@@ -53,7 +53,7 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 
 let appReducerCore = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
   switch action {
-  case .calculator:
+  case .multiCalculator:
     return .none
   case .setting:
     return .none
@@ -91,10 +91,10 @@ public struct AppView: View {
           .font(.system(size: 24))
           .foregroundColor(.black)
 
-          CalculatorView(
+          MultiCalculatorView(
             store: self.store.scope(
-              state: \.calculator,
-              action: AppAction.calculator
+              state: \.multiCalculator,
+              action: AppAction.multiCalculator
             )
           )
         }
@@ -112,7 +112,7 @@ struct AppViewPreview: PreviewProvider {
     AppView(
       store: Store(
         initialState: .init(
-          calculator: .init(),
+          multiCalculator: .init(),
           setting: .init(build: .noop)
         ),
         reducer: appReducer,
