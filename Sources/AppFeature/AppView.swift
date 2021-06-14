@@ -2,6 +2,7 @@ import CalculatorFeature
 import ComposableArchitecture
 import SettingFeature
 import SwiftUI
+import DeviceStateModifier
 
 public struct AppState: Equatable {
   public var calculator: CalculatorState
@@ -85,6 +86,7 @@ public struct AppView: View {
                 Image(systemName: "gear")
               }
             )
+            .padding(4)
           }
           .font(.system(size: 24))
           .foregroundColor(.black)
@@ -100,6 +102,7 @@ public struct AppView: View {
       }
       .navigationViewStyle(StackNavigationViewStyle())
       .zIndex(0)
+      .modifier(DeviceStateModifier())
     }
   }
 }

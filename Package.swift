@@ -19,6 +19,7 @@ let package = Package(
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
     .library(name: "Build", targets: ["Build"]),
     .library(name: "Styleguide", targets: ["Styleguide"]),
+    .library(name: "DeviceStateModifier", targets: ["DeviceStateModifier"]),
   ],
   dependencies: [
     .package(
@@ -33,6 +34,7 @@ let package = Package(
       dependencies: [
         "CalculatorFeature",
         "SettingFeature",
+        "DeviceStateModifier",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -84,5 +86,6 @@ let package = Package(
     ),
     .target(name: "Build"),
     .target(name: "Styleguide"),
+    .target(name: "DeviceStateModifier"),
   ]
 )
