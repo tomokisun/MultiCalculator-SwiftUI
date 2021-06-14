@@ -3,7 +3,7 @@ import Foundation
 public struct Build: Equatable {
   public var version: () -> String
   public var number: () -> String
-  
+
   public init(
     version: @escaping () -> String,
     number: @escaping () -> String
@@ -11,19 +11,19 @@ public struct Build: Equatable {
     self.version = version
     self.number = number
   }
-  
+
   public static let live: Self = {
     return Self(
       version: { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" },
       number: { Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "" }
     )
   }()
-  
+
   public static let noop = Self(
     version: { "version" },
     number: { "number" }
   )
-  
+
   public static func == (lhs: Build, rhs: Build) -> Bool {
     return lhs.version() == rhs.version()
       && lhs.number() == rhs.number()

@@ -24,7 +24,7 @@ extension View {
       trailing: trailing
     )
   }
-  
+
   public func navigationStyle<Title: View>(
     backgroundColor: Color = .white,
     foregroundColor: Color = .black,
@@ -52,7 +52,7 @@ private struct NavigationBar<Title: View, Content: View, Trailing: View>: View {
   @Environment(\.presentationMode) @Binding var presentationMode
   let title: Title
   let trailing: Trailing
-  
+
   var body: some View {
     VStack {
       ZStack {
@@ -60,30 +60,34 @@ private struct NavigationBar<Title: View, Content: View, Trailing: View>: View {
           .font(.system(size: 14, weight: .medium, design: .default))
         HStack {
           if self.navPresentationStyle == .navigation {
-            Button(action: self.dismiss, label: {
-              Image(systemName: "arrow.left")
-            })
+            Button(
+              action: self.dismiss,
+              label: {
+                Image(systemName: "arrow.left")
+              })
           }
           Spacer()
           if self.navPresentationStyle == .modal {
-            Button(action: self.dismiss, label: {
-              Text("Done")
-                .font(.system(size: 14))
-            })
+            Button(
+              action: self.dismiss,
+              label: {
+                Text("Done")
+                  .font(.system(size: 14))
+              })
           } else {
             self.trailing
           }
         }
       }
       .padding()
-      
+
       content
     }
     .background(backgroundColor.ignoresSafeArea())
     .foregroundColor(foregroundColor)
     .navigationBarHidden(true)
   }
-  
+
   func dismiss() {
     self.onDismiss()
     self.presentationMode.dismiss()

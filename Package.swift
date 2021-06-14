@@ -14,7 +14,7 @@ let package = Package(
     .library(name: "SnapshotTestHelper", targets: ["SnapshotTestHelper"]),
     .library(name: "Build", targets: ["Build"]),
     .library(name: "Styleguide", targets: ["Styleguide"]),
-    
+
     .library(name: "AppFeature", targets: ["AppFeature"]),
     .library(name: "CalculatorFeature", targets: ["CalculatorFeature"]),
     .library(name: "SettingFeature", targets: ["SettingFeature"]),
@@ -75,6 +75,6 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
-    .target(name: "Styleguide")
+    .target(name: "Styleguide"),
   ]
 )

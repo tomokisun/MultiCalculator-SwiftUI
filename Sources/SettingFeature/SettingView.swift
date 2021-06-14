@@ -1,14 +1,14 @@
-import SwiftUI
 import Build
 import ComposableArchitecture
 import Styleguide
+import SwiftUI
 
 public struct SettingState: Equatable {
   public var build: Build?
-  
+
   public init(
     build: Build? = nil
-    ) {
+  ) {
     self.build = build
   }
 }
@@ -19,7 +19,7 @@ public enum SettingAction: Equatable {
 
 public struct SettingEnvironment {
   public var build: Build
-  
+
   public init(
     build: Build
   ) {
@@ -27,7 +27,8 @@ public struct SettingEnvironment {
   }
 }
 
-public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironment> { state, action, environment in
+public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironment> {
+  state, action, environment in
   switch action {
   case .onAppear:
     state.build = environment.build
@@ -36,15 +37,15 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
 }
 
 public struct SettingView: View {
-  
+
   let store: Store<SettingState, SettingAction>
-  
+
   public init(
     store: Store<SettingState, SettingAction>
   ) {
     self.store = store
   }
-  
+
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       Form {

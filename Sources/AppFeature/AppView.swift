@@ -1,12 +1,12 @@
-import SwiftUI
 import CalculatorFeature
 import ComposableArchitecture
 import SettingFeature
+import SwiftUI
 
 public struct AppState: Equatable {
   public var calculator: CalculatorState
   public var setting: SettingState
-  
+
   public init(
     calculator: CalculatorState = .init(),
     setting: SettingState = .init()
@@ -39,14 +39,14 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
       action: /AppAction.calculator,
       environment: \.calculator
     ),
-  
+
   settingReducer
     .pullback(
       state: \AppState.setting,
       action: /AppAction.setting,
       environment: \.setting
     ),
-  
+
   appReducerCore
 )
 
@@ -61,13 +61,13 @@ let appReducerCore = Reducer<AppState, AppAction, AppEnvironment> { state, actio
 
 public struct AppView: View {
   let store: Store<AppState, AppAction>
-  
+
   public init(
     store: Store<AppState, AppAction>
   ) {
     self.store = store
   }
-  
+
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       NavigationView {
@@ -88,7 +88,7 @@ public struct AppView: View {
           }
           .font(.system(size: 24))
           .foregroundColor(.black)
-          
+
           CalculatorView(
             store: self.store.scope(
               state: \.calculator,
