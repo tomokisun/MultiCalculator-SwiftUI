@@ -56,20 +56,21 @@ platform :ios do
   end
 
   lane :upgrade_app_version do
-
     today = Date.today
     shortVersionString = "#{today.year}.#{today.month}.#{today.day}"
 
-    set_info_plist_value(
-      path: './App/Production/Info.plist',
-      key: 'CFBundleShortVersionString',
-      value: shortVersionString
-    )
+    ['./App/Production/Info.plist', './App/Staging/Info.plist'].each do |path|
+      set_info_plist_value(
+        path: path,
+        key: 'CFBundleShortVersionString',
+        value: shortVersionString
+      )
 
-    set_info_plist_value(
-      path: './App/Production/Info.plist',
-      key: 'CFBundleVersion',
-      value: `git rev-parse --short HEAD`.to_i(16).to_s
-    )
+      set_info_plist_value(
+        path: './App/Production/Info.plist',
+        key: 'CFBundleVersion',
+        value: `git rev-parse --short HEAD`.to_i(16).to_s
+      )
+    end
   end
 end
