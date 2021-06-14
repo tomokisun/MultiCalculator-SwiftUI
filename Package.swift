@@ -60,6 +60,7 @@ let package = Package(
       name: "MultiCalculatorFeature",
       dependencies: [
         "CalculatorFeature",
+        "DeviceStateModifier",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

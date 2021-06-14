@@ -1,6 +1,7 @@
 import CalculatorFeature
 import ComposableArchitecture
 import SwiftUI
+import DeviceStateModifier
 
 public struct MultiCalculatorState: Equatable {
   public var calculator1 = CalculatorState()
@@ -64,6 +65,7 @@ public let multiCalculatorReducer = Reducer<
 
 public struct MultiCalculatorView: View {
   let store: Store<MultiCalculatorState, MultiCalculatorAction>
+  @Environment(\.deviceState) var deviceState
 
   public init(
     store: Store<MultiCalculatorState, MultiCalculatorAction>
@@ -81,18 +83,20 @@ public struct MultiCalculatorView: View {
               action: MultiCalculatorAction.calculator1
             )
           )
-          CalculatorView(
-            store: self.store.scope(
-              state: \.calculator2,
-              action: MultiCalculatorAction.calculator2
+          if deviceState.isPad || deviceState.orientation.isLandscape {
+            CalculatorView(
+              store: self.store.scope(
+                state: \.calculator2,
+                action: MultiCalculatorAction.calculator2
+              )
             )
-          )
-          CalculatorView(
-            store: self.store.scope(
-              state: \.calculator3,
-              action: MultiCalculatorAction.calculator3
+            CalculatorView(
+              store: self.store.scope(
+                state: \.calculator3,
+                action: MultiCalculatorAction.calculator3
+              )
             )
-          )
+          }
         }
       }
     }
