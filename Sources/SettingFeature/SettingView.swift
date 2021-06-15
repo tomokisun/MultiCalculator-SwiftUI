@@ -47,7 +47,9 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
     return .none
   case .leaveUsAReviewButtonTapped:
     return environment.applicationClient
-      .open(URL(string: "https://apps.apple.com/jp/app/id1525626543?mt=8&action=write-review")!, [:])
+      .open(
+        URL(string: "https://apps.apple.com/jp/app/id1525626543?mt=8&action=write-review")!, [:]
+      )
       .fireAndForget()
   }
 }

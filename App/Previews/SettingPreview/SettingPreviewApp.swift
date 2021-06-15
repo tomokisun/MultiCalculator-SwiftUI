@@ -1,6 +1,6 @@
+import ComposableArchitecture
 import SettingFeature
 import SwiftUI
-import ComposableArchitecture
 
 @main
 struct SettingPreviewApp: App {

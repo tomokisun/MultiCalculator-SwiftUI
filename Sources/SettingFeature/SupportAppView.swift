@@ -2,18 +2,18 @@ import ComposableArchitecture
 import SwiftUI
 
 public struct SupportAppView: View {
-  
+
   public let store: Store<SettingState, SettingAction>
   @ObservedObject var viewStore: ViewStore<SettingState, SettingAction>
   @State var isSharePresented = false
-  
+
   public init(
     store: Store<SettingState, SettingAction>
   ) {
     self.store = store
     self.viewStore = ViewStore(self.store)
   }
-  
+
   public var body: some View {
     Section(header: Text("")) {
       Button(action: { viewStore.send(.leaveUsAReviewButtonTapped) }) {
@@ -31,7 +31,7 @@ public struct SupportAppView: View {
             )
         }
       }
-      
+
       Button(action: { isSharePresented.toggle() }) {
         HStack {
           Image(systemName: "person.2.fill")
@@ -70,5 +70,6 @@ public struct ActivityView: UIViewControllerRepresentable {
     return controller
   }
 
-  public func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+  public func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context)
+  {}
 }

@@ -1,6 +1,6 @@
-import UIApplicationClient
 import Build
 import ComposableArchitecture
+import UIApplicationClient
 import UIKit
 
 public struct AppEnvironment {
