@@ -2,13 +2,30 @@ name: CI
 
 on: [push]
 
+env:
+  DEVELOPER_DIR: /Applications/Xcode_12.4.app
+
 jobs:
-  mac:
-    name: macOS
+  build:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Select Xcode 12.4
-      run: sudo xcode-select -s /Applications/Xcode_12.4.app
-    - name: Run test
-      run: make test
+    - name: Cache by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/MultiCalculator.xcworkspace/xcshareddata/swiftpm/Package.resolved')} }
+        restore-keys: ${{ runner.os }}-swiftpm-
+    - run: make build
+
+  test:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Cache by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/MultiCalculator.xcworkspace/xcshareddata/swiftpm/Package.resolved')} }
+        restore-keys: ${{ runner.os }}-swiftpm-
+    - run: make test
