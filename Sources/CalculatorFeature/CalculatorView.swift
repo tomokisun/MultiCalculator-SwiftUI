@@ -2,6 +2,7 @@ import Calculator
 import ComposableArchitecture
 import DeviceStateModifier
 import SwiftUI
+import FeedbackGeneratorClient
 import UIKit
 
 extension String {
@@ -34,20 +35,37 @@ public enum CalculatorAction: Equatable {
 }
 
 public struct CalculatorEnvironment {
-  public init() {}
+  public var feedbackGeneratorClient: FeedbackGeneratorClient
+  public init(
+    feedbackGeneratorClient: FeedbackGeneratorClient
+  ) {
+    self.feedbackGeneratorClient = feedbackGeneratorClient
+  }
 }
 
 var calculator = Calculator()
 
 public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, CalculatorEnvironment> {
-  state, action, _ in
+  state, action, environment in
 
   switch action {
   case let .tappedButton(symbol):
     if Int(symbol) != nil {
-      return Effect(value: CalculatorAction.touchDigit(symbol))
+      return Effect.merge(
+        environment.feedbackGeneratorClient
+          .selectionChanged()
+          .fireAndForget(),
+        Effect(value: CalculatorAction.touchDigit(symbol))
+          .eraseToEffect()
+      )
     } else {
-      return Effect(value: CalculatorAction.performOperation(symbol))
+      return Effect.merge(
+        environment.feedbackGeneratorClient
+          .selectionChanged()
+          .fireAndForget(),
+        Effect(value: CalculatorAction.performOperation(symbol))
+          .eraseToEffect()
+      )
     }
   case let .touchDigit(digit):
     if state.userIsInTheMiddleOfTyping {
@@ -146,7 +164,9 @@ struct CalculatorViewPreview: PreviewProvider {
       store: .init(
         initialState: .init(),
         reducer: calculatorReducer,
-        environment: .init()
+        environment: .init(
+          feedbackGeneratorClient: .noop
+        )
       )
     )
   }

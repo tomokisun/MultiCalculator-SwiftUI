@@ -24,7 +24,9 @@ public enum AppAction: Equatable {
 
 extension AppEnvironment {
   var multiCalculator: MultiCalculatorEnvironment {
-    .init()
+    .init(
+      feedbackGeneratorClient: feedbackGeneratorClient
+    )
   }
   var setting: SettingEnvironment {
     .init(

@@ -38,6 +38,8 @@ let package = Package(
         "MultiCalculatorFeature",
         "SettingFeature",
         "DeviceStateModifier",
+        "UserDefaultsClient",
+        "FeedbackGeneratorClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -45,6 +47,7 @@ let package = Package(
       name: "CalculatorFeature",
       dependencies: [
         "Calculator",
+        "FeedbackGeneratorClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -65,6 +68,7 @@ let package = Package(
       dependencies: [
         "CalculatorFeature",
         "DeviceStateModifier",
+        "FeedbackGeneratorClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

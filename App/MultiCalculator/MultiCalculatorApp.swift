@@ -2,6 +2,8 @@ import AppFeature
 import Build
 import ComposableArchitecture
 import SwiftUI
+import FeedbackGeneratorClient
+import UserDefaultsClient
 
 @main
 struct MultiCalculatorApp: App {
@@ -27,6 +29,8 @@ extension AppEnvironment {
       }
     },
     build: .live,
-    applicationClient: .live
+    applicationClient: .live,
+    feedbackGeneratorClient: .live,
+    userDefaultsClient: .live()
   )
 }

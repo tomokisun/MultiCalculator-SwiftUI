@@ -2,6 +2,7 @@ import CalculatorFeature
 import ComposableArchitecture
 import DeviceStateModifier
 import SwiftUI
+import FeedbackGeneratorClient
 
 public struct MultiCalculatorState: Equatable {
   public var calculator1 = CalculatorState()
@@ -19,13 +20,22 @@ public enum MultiCalculatorAction: Equatable {
 }
 
 public struct MultiCalculatorEnvironment {
-  public static let noop = Self()
-  public init() {}
+  public var feedbackGeneratorClient: FeedbackGeneratorClient
+  public init(
+    feedbackGeneratorClient: FeedbackGeneratorClient
+  ) {
+    self.feedbackGeneratorClient = feedbackGeneratorClient
+  }
+  public static let noop = Self(
+    feedbackGeneratorClient: .noop
+  )
 }
 
 extension MultiCalculatorEnvironment {
   var calculator: CalculatorEnvironment {
-    .init()
+    .init(
+      feedbackGeneratorClient: feedbackGeneratorClient
+    )
   }
 }
 
