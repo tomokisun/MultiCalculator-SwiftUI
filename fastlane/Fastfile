@@ -60,9 +60,6 @@ platform :ios do
     short_version_string = "#{today.year}.#{today.month}.#{today.day}"
     bundle_version = ENV['GITHUB_RUN_NUMBER']
 
-    puts 'bundle_version'
-    puts bundle_version
-
     set_info_plist_value(
       path: './App/MultiCalculator/Info.plist',
       key: 'CFBundleShortVersionString',
