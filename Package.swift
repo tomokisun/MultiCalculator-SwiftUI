@@ -48,6 +48,7 @@ let package = Package(
       dependencies: [
         "Calculator",
         "FeedbackGeneratorClient",
+        "UserDefaultsClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

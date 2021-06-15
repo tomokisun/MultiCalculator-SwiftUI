@@ -13,7 +13,7 @@ struct FeedbackSettingView: View {
   var body: some View {
     Section(header: Text("")) {
       Toggle(
-        "Enable Haptics",
+        "Haptics feedback",
         isOn: self.viewStore.binding(
           keyPath: \.enableFeedback,
           send: SettingAction.binding
