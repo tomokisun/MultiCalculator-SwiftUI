@@ -15,6 +15,7 @@ public struct SettingState: Equatable {
 
 public enum SettingAction: Equatable {
   case onAppear
+  case leaveUsAReviewButtonTapped
 }
 
 public struct SettingEnvironment {
@@ -33,6 +34,8 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
   case .onAppear:
     state.build = environment.build
     return .none
+  case .leaveUsAReviewButtonTapped:
+    return .none
   }
 }
 
@@ -49,6 +52,7 @@ public struct SettingView: View {
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       Form {
+        SupportAppView(store: store)
         Section(header: Text("")) {
           HStack {
             Text("version")
