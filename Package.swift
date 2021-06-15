@@ -85,6 +85,7 @@ let package = Package(
         "Build",
         "Styleguide",
         "UIApplicationClient",
+        "UserDefaultsClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

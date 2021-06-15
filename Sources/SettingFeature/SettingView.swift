@@ -3,39 +3,46 @@ import ComposableArchitecture
 import Styleguide
 import SwiftUI
 import UIApplicationClient
+import UserDefaultsClient
 
 public struct SettingState: Equatable {
   public var build: Build?
+  public var enableFeedback: Bool
 
   public init(
-    build: Build? = nil
+    build: Build? = nil,
+    enableFeedback: Bool = false
   ) {
     self.build = build
+    self.enableFeedback = enableFeedback
   }
 }
 
 public enum SettingAction: Equatable {
   case onAppear
   case leaveUsAReviewButtonTapped
+  case binding(BindingAction<SettingState>)
 }
 
 public struct SettingEnvironment {
   public var build: Build
   public var applicationClient: UIApplicationClient
+  public var userDefaultsClient: UserDefaultsClient
 
   public init(
     build: Build,
-    applicationClient: UIApplicationClient
+    applicationClient: UIApplicationClient,
+    userDefaultsClient: UserDefaultsClient
   ) {
     self.build = build
     self.applicationClient = applicationClient
+    self.userDefaultsClient = userDefaultsClient
   }
-}
-
-extension SettingEnvironment {
+  
   static let noop = Self(
     build: .noop,
-    applicationClient: .noop
+    applicationClient: .noop,
+    userDefaultsClient: .noop
   )
 }
 
@@ -44,6 +51,7 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
   switch action {
   case .onAppear:
     state.build = environment.build
+    state.enableFeedback = environment.userDefaultsClient.hasCalculatorButtonTappedFeedback
     return .none
   case .leaveUsAReviewButtonTapped:
     return environment.applicationClient
@@ -51,6 +59,13 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
         URL(string: "https://apps.apple.com/jp/app/id1525626543?mt=8&action=write-review")!, [:]
       )
       .fireAndForget()
+  case .binding(\.enableFeedback):
+    state.enableFeedback = !state.enableFeedback
+    return environment.userDefaultsClient
+      .setHasCalculatorButtonTappedFeedback(state.enableFeedback)
+      .fireAndForget()
+  case .binding:
+    return .none
   }
 }
 
@@ -68,6 +83,7 @@ public struct SettingView: View {
     WithViewStore(self.store) { viewStore in
       Form {
         SupportAppView(store: store)
+        FeedbackSettingView(store: store)
         Section(header: Text("")) {
           HStack {
             Text("version")
