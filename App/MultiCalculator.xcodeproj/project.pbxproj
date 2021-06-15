@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		346956702678C6D400818624 /* SettingFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 3469566F2678C6D400818624 /* SettingFeature */; };
 		346956722678EBAD00818624 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 346956712678EBAD00818624 /* AppFeature */; };
-		34BE497D26791BFD00F915BF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34BE497C26791BFC00F915BF /* Settings.bundle */; };
+		34BE497F26791FB000F915BF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 34BE497E26791FB000F915BF /* Settings.bundle */; };
 		34D940562678C693006C9FB5 /* SettingPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D940552678C693006C9FB5 /* SettingPreviewApp.swift */; };
 		34D9405A2678C694006C9FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D940592678C694006C9FB5 /* Assets.xcassets */; };
 		34F9BD0B2678C129007088D7 /* MultiCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9BD0A2678C129007088D7 /* MultiCalculatorApp.swift */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		34BE497C26791BFC00F915BF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		34BE497E26791FB000F915BF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		34D940532678C693006C9FB5 /* SettingPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SettingPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D940552678C693006C9FB5 /* SettingPreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPreviewApp.swift; sourceTree = "<group>"; };
 		34D940592678C694006C9FB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 				34F9BD0A2678C129007088D7 /* MultiCalculatorApp.swift */,
 				34F9BD0E2678C12B007088D7 /* Assets.xcassets */,
 				34F9BD1C2678C1AC007088D7 /* Info.plist */,
-				34BE497C26791BFC00F915BF /* Settings.bundle */,
+				34BE497E26791FB000F915BF /* Settings.bundle */,
 			);
 			path = MultiCalculator;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34BE497D26791BFD00F915BF /* Settings.bundle in Resources */,
+				34BE497F26791FB000F915BF /* Settings.bundle in Resources */,
 				34F9BD0F2678C12B007088D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
