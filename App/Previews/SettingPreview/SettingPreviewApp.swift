@@ -11,7 +11,10 @@ struct SettingPreviewApp: App {
           store: Store(
             initialState: .init(),
             reducer: settingReducer,
-            environment: .init(build: .noop)
+            environment: .init(
+              build: .live,
+              applicationClient: .live
+            )
           )
         )
       }

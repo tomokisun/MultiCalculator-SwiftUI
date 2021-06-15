@@ -2,6 +2,7 @@ import Build
 import ComposableArchitecture
 import Styleguide
 import SwiftUI
+import UIApplicationClient
 
 public struct SettingState: Equatable {
   public var build: Build?
@@ -20,12 +21,22 @@ public enum SettingAction: Equatable {
 
 public struct SettingEnvironment {
   public var build: Build
+  public var applicationClient: UIApplicationClient
 
   public init(
-    build: Build
+    build: Build,
+    applicationClient: UIApplicationClient
   ) {
     self.build = build
+    self.applicationClient = applicationClient
   }
+}
+
+extension SettingEnvironment {
+  static let noop = Self(
+    build: .noop,
+    applicationClient: .noop
+  )
 }
 
 public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironment> {
@@ -35,7 +46,9 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
     state.build = environment.build
     return .none
   case .leaveUsAReviewButtonTapped:
-    return .none
+    return environment.applicationClient
+      .open(URL(string: "https://apps.apple.com/jp/app/id1525626543?mt=8&action=write-review")!, [:])
+      .fireAndForget()
   }
 }
 
@@ -91,9 +104,7 @@ struct SettingViewPreview: PreviewProvider {
           build: .noop
         ),
         reducer: settingReducer,
-        environment: .init(
-          build: .noop
-        )
+        environment: .noop
       )
     )
   }

@@ -22,6 +22,7 @@ let package = Package(
     .library(name: "DeviceStateModifier", targets: ["DeviceStateModifier"]),
     .library(name: "FeedbackGeneratorClient", targets: ["FeedbackGeneratorClient"]),
     .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
+    .library(name: "UIApplicationClient", targets: ["UIApplicationClient"]),
   ],
   dependencies: [
     .package(
@@ -79,6 +80,7 @@ let package = Package(
       dependencies: [
         "Build",
         "Styleguide",
+        "UIApplicationClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),
@@ -103,5 +105,11 @@ let package = Package(
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
       ]
     ),
+    .target(
+      name: "UIApplicationClient",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+      ]
+    )
   ]
 )
