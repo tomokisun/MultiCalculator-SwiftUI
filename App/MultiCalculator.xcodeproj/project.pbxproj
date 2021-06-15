@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		346956702678C6D400818624 /* SettingFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 3469566F2678C6D400818624 /* SettingFeature */; };
+		346956722678EBAD00818624 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 346956712678EBAD00818624 /* AppFeature */; };
 		34D940562678C693006C9FB5 /* SettingPreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D940552678C693006C9FB5 /* SettingPreviewApp.swift */; };
 		34D9405A2678C694006C9FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D940592678C694006C9FB5 /* Assets.xcassets */; };
 		34F9BD0B2678C129007088D7 /* MultiCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F9BD0A2678C129007088D7 /* MultiCalculatorApp.swift */; };
 		34F9BD0F2678C12B007088D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F9BD0E2678C12B007088D7 /* Assets.xcassets */; };
-		34F9BD1B2678C197007088D7 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 34F9BD1A2678C197007088D7 /* AppFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F9BD1B2678C197007088D7 /* AppFeature in Frameworks */,
+				346956722678EBAD00818624 /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,7 @@
 			);
 			name = MultiCalculator;
 			packageProductDependencies = (
-				34F9BD1A2678C197007088D7 /* AppFeature */,
+				346956712678EBAD00818624 /* AppFeature */,
 			);
 			productName = MultiCalculator;
 			productReference = 34F9BD072678C129007088D7 /* MultiCalculator.app */;
@@ -394,7 +394,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.MultiCalculator";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tomoki-sun.app.ios.multi-calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -463,7 +463,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = SettingFeature;
 		};
-		34F9BD1A2678C197007088D7 /* AppFeature */ = {
+		346956712678EBAD00818624 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppFeature;
 		};
