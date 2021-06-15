@@ -20,15 +20,13 @@ struct MultiCalculatorApp: App {
 }
 
 extension AppEnvironment {
-  static let live: Self = {
-    let build = Build.live
-    return Self(
-      setUserInterfaceStyle: { userInterfaceStyle in
-        .fireAndForget {
-          UIApplication.shared.windows.first?.overrideUserInterfaceStyle = userInterfaceStyle
-        }
-      },
-      build: build
-    )
-  }()
+  static let live = Self(
+    setUserInterfaceStyle: { userInterfaceStyle in
+      .fireAndForget {
+        UIApplication.shared.windows.first?.overrideUserInterfaceStyle = userInterfaceStyle
+      }
+    },
+    build: .live,
+    applicationClient: .live
+  )
 }

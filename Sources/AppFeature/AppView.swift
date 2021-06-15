@@ -28,7 +28,8 @@ extension AppEnvironment {
   }
   var setting: SettingEnvironment {
     .init(
-      build: build
+      build: build,
+      applicationClient: applicationClient
     )
   }
 }
