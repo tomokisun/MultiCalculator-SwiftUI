@@ -4,7 +4,7 @@ import ComposableArchitecture
 import SwiftUI
 
 @main
-struct StagingApp: App {
+struct MultiCalculatorApp: App {
 
   let store = Store(
     initialState: .init(),
