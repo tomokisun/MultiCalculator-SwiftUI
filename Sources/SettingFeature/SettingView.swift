@@ -49,7 +49,7 @@ public struct SettingView: View {
   public var body: some View {
     WithViewStore(self.store) { viewStore in
       Form {
-        Section {
+        Section(header: Text("")) {
           HStack {
             Text("version")
             Spacer()

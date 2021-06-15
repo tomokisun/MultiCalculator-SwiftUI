@@ -20,8 +20,8 @@ public struct Build: Equatable {
   }()
 
   public static let noop = Self(
-    version: { "version" },
-    number: { "number" }
+    version: { "2021.5.12" },
+    number: { "12345" }
   )
 
   public static func == (lhs: Build, rhs: Build) -> Bool {
