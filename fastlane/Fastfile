@@ -58,7 +58,7 @@ platform :ios do
   lane :upgrade_app_version do
     today = Date.today
     short_version_string = "#{today.year}.#{today.month}.#{today.day}"
-    bundle_version = ENV['BUILD_NUMBER']
+    bundle_version = ENV['GITHUB_RUN_NUMBER']
 
     puts 'bundle_version'
     puts bundle_version
