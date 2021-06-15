@@ -67,6 +67,7 @@ let appReducerCore = Reducer<AppState, AppAction, AppEnvironment> { state, actio
 
 public struct AppView: View {
   let store: Store<AppState, AppAction>
+  @Environment(\.colorScheme) var colorScheme
 
   public init(
     store: Store<AppState, AppAction>
@@ -94,7 +95,7 @@ public struct AppView: View {
             .padding(4)
           }
           .font(.system(size: 24))
-          .foregroundColor(.black)
+          .foregroundColor(colorScheme == .light ? .black : .white)
 
           MultiCalculatorView(
             store: self.store.scope(

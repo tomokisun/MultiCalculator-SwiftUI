@@ -70,8 +70,8 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
 }
 
 public struct SettingView: View {
-
   let store: Store<SettingState, SettingAction>
+  @Environment(\.colorScheme) var colorScheme
 
   public init(
     store: Store<SettingState, SettingAction>
@@ -103,8 +103,8 @@ public struct SettingView: View {
         }
       }
       .navigationStyle(
-        backgroundColor: .white,
-        foregroundColor: .black,
+        backgroundColor: colorScheme == .light ? .white : .black,
+        foregroundColor: colorScheme == .light ? .black : .white,
         title: Text("Settings"),
         navPresentationStyle: .navigation,
         onDismiss: {}
