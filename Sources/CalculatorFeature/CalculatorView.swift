@@ -95,7 +95,7 @@ public struct CalculatorView: View {
           }
 
           HStack {
-            ForEach(["AC", "±", "％", "÷"], id: \.self) { title in
+            ForEach(["AC", "±", "%", "÷"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
                 .frame(width: reader.size.width / 5)
             }
