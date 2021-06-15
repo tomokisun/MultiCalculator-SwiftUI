@@ -6,26 +6,9 @@ env:
   DEVELOPER_DIR: /Applications/Xcode_12.4.app
 
 jobs:
-  build:
-    runs-on: macOS-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Cache by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: SourcePackages
-        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/MultiCalculator.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-        restore-keys: ${{ runner.os }}-swiftpm-
-    - run: make build
-
   test:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Cache by SwiftPM
-      uses: actions/cache@v2
-      with:
-        path: SourcePackages
-        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/MultiCalculator.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-        restore-keys: ${{ runner.os }}-swiftpm-
+    - run: make build
     - run: make test
