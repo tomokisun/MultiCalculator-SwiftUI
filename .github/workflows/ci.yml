@@ -10,5 +10,4 @@ jobs:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
-    - run: make build
     - run: make test
