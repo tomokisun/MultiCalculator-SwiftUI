@@ -11,11 +11,3 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: make test
-  
-  build:
-    runs-on: macOS-latest
-    steps:
-    - uses: einaregilsson/build-number@v3
-      with:
-        token: ${{secrets.github_token}}
-    - run: echo "Build number is $BUILD_NUMBER"
