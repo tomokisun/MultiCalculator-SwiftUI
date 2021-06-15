@@ -8,16 +8,18 @@ on:
 jobs:
   deploy:
     runs-on: macOS-latest
-
     steps:
       - uses: actions/checkout@v2.0.0
-      
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6.3
           bundler-cache: true
 
+      - run: make build
       - run: make licenses
+      - uses: einaregilsson/build-number@v3
+        with:
+          token: ${{ secrets.github_token }}
 
       - name: deploy
         env:
@@ -27,4 +29,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PERSONAL_GITHUB_ACCESS_TOKEN: ${{ secrets.PERSONAL_GITHUB_ACCESS_TOKEN }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          BUILD_NUMBER: ${{ steps.buildnumber.outputs.build_number }}
         run: bundle exec fastlane deploy_testflight
+
+      - run: echo "Build number is $BUILD_NUMBER"
