@@ -13,7 +13,7 @@ public struct UserDefaultsClient {
   public var hasCalculatorButtonTappedFeedback: Bool {
     self.boolForKey(UserDefaultsClientKey.hasCalculatorButtonTappedFeedback)
   }
-  
+
   public func setHasCalculatorButtonTappedFeedback(_ bool: Bool) -> Effect<Never, Never> {
     self.setBool(bool, UserDefaultsClientKey.hasCalculatorButtonTappedFeedback)
   }

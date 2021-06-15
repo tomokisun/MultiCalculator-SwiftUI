@@ -38,7 +38,7 @@ public struct SettingEnvironment {
     self.applicationClient = applicationClient
     self.userDefaultsClient = userDefaultsClient
   }
-  
+
   static let noop = Self(
     build: .noop,
     applicationClient: .noop,

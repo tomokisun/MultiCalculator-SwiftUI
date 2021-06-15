@@ -25,7 +25,7 @@ public struct CalculatorState: Equatable {
   }
   var userIsInTheMiddleOfTyping = false
   public var userInterfaceOrientation: UIInterfaceOrientation = .unknown
-  
+
   public init() {}
 }
 
@@ -38,7 +38,7 @@ public enum CalculatorAction: Equatable {
 public struct CalculatorEnvironment {
   public var feedbackGeneratorClient: FeedbackGeneratorClient
   public var userDefaultsClient: UserDefaultsClient
-  
+
   public init(
     feedbackGeneratorClient: FeedbackGeneratorClient,
     userDefaultsClient: UserDefaultsClient
@@ -46,7 +46,7 @@ public struct CalculatorEnvironment {
     self.feedbackGeneratorClient = feedbackGeneratorClient
     self.userDefaultsClient = userDefaultsClient
   }
-  
+
   static let noop = Self(
     feedbackGeneratorClient: .noop,
     userDefaultsClient: .noop
@@ -57,7 +57,7 @@ var calculator = Calculator()
 
 public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, CalculatorEnvironment> {
   state, action, environment in
-  
+
   switch action {
   case let .tappedButton(symbol):
     if Int(symbol) != nil {
@@ -105,13 +105,13 @@ public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, Calcul
 public struct CalculatorView: View {
   public let store: Store<CalculatorState, CalculatorAction>
   @Environment(\.deviceState) var deviceState
-  
+
   public init(
     store: Store<CalculatorState, CalculatorAction>
   ) {
     self.store = store
   }
-  
+
   public var body: some View {
     GeometryReader { reader in
       WithViewStore(self.store) { viewStore in
@@ -121,11 +121,11 @@ public struct CalculatorView: View {
             .font(.largeTitle)
             .bold()
             .frame(maxWidth: .infinity, alignment: .trailing)
-          
+
           if deviceState.orientation.isPortrait {
             Spacer()
           }
-          
+
           HStack {
             ForEach(["AC", "±", "%", "÷"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -133,7 +133,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             ForEach(["7", "8", "9", "×"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -141,7 +141,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             ForEach(["4", "5", "6", "-"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -149,7 +149,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             ForEach(["1", "2", "3", "+"], id: \.self) { title in
               CalculatorButton(title: title, action: { viewStore.send(.tappedButton(title)) })
@@ -157,7 +157,7 @@ public struct CalculatorView: View {
             }
           }
           .frame(height: reader.size.width / 5)
-          
+
           HStack {
             CalculatorButton(title: "0", action: { viewStore.send(.tappedButton("0")) })
               .frame(width: reader.size.width / 5 * 3)
