@@ -9,7 +9,7 @@ public struct UserDefaultsClient {
   public var integerForKey: (String) -> Int
   public var setBool: (Bool, String) -> Effect<Never, Never>
   public var setInteger: (Int, String) -> Effect<Never, Never>
-  
+
   public var hasCalculatorButtonTappedFeedback: Bool {
     self.boolForKey(UserDefaultsClientKey.hasCalculatorButtonTappedFeedback)
   }

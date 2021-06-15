@@ -1,8 +1,8 @@
 import AppFeature
 import Build
 import ComposableArchitecture
-import SwiftUI
 import FeedbackGeneratorClient
+import SwiftUI
 import UserDefaultsClient
 
 @main

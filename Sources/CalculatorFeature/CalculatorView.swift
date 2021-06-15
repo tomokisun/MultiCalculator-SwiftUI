@@ -1,8 +1,8 @@
 import Calculator
 import ComposableArchitecture
 import DeviceStateModifier
-import SwiftUI
 import FeedbackGeneratorClient
+import SwiftUI
 import UIKit
 
 extension String {

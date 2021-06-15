@@ -1,8 +1,8 @@
 import CalculatorFeature
 import ComposableArchitecture
 import DeviceStateModifier
-import SwiftUI
 import FeedbackGeneratorClient
+import SwiftUI
 
 public struct MultiCalculatorState: Equatable {
   public var calculator1 = CalculatorState()

@@ -1,8 +1,8 @@
 import Build
 import ComposableArchitecture
+import FeedbackGeneratorClient
 import UIApplicationClient
 import UIKit
-import FeedbackGeneratorClient
 import UserDefaultsClient
 
 public struct AppEnvironment {
