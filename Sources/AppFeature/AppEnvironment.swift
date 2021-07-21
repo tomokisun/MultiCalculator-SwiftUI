@@ -13,6 +13,10 @@ public struct AppEnvironment {
   public var feedbackGeneratorClient: FeedbackGeneratorClient
   public var userDefaultsClient: UserDefaultsClient
   public var storeKitClient: StoreKitClient
+  public var backgroundQueue: AnySchedulerOf<DispatchQueue>
+  public var mainQueue: AnySchedulerOf<DispatchQueue>
+  public var mainRunLoop: AnySchedulerOf<RunLoop>
+  public var timeZone: () -> TimeZone
 
   public init(
     setUserInterfaceStyle: @escaping (UIUserInterfaceStyle) -> Effect<Never, Never>,
@@ -20,7 +24,11 @@ public struct AppEnvironment {
     applicationClient: UIApplicationClient,
     feedbackGeneratorClient: FeedbackGeneratorClient,
     userDefaultsClient: UserDefaultsClient,
-    storeKitClient: StoreKitClient
+    storeKitClient: StoreKitClient,
+    backgroundQueue: AnySchedulerOf<DispatchQueue>,
+    mainQueue: AnySchedulerOf<DispatchQueue>,
+    mainRunLoop: AnySchedulerOf<RunLoop>,
+    timeZone: @escaping () -> TimeZone
   ) {
     self.setUserInterfaceStyle = setUserInterfaceStyle
     self.build = build
@@ -28,6 +36,10 @@ public struct AppEnvironment {
     self.feedbackGeneratorClient = feedbackGeneratorClient
     self.userDefaultsClient = userDefaultsClient
     self.storeKitClient = storeKitClient
+    self.backgroundQueue = backgroundQueue
+    self.mainQueue = mainQueue
+    self.mainRunLoop = mainRunLoop
+    self.timeZone = timeZone
   }
 
   public static let noop = Self(
@@ -36,6 +48,10 @@ public struct AppEnvironment {
     applicationClient: .noop,
     feedbackGeneratorClient: .noop,
     userDefaultsClient: .noop,
-    storeKitClient: .noop
+    storeKitClient: .noop,
+    backgroundQueue: .immediate,
+    mainQueue: .immediate,
+    mainRunLoop: .immediate,
+    timeZone: { .autoupdatingCurrent }
   )
 }

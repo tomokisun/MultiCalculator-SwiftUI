@@ -32,6 +32,10 @@ extension AppEnvironment {
     applicationClient: .live,
     feedbackGeneratorClient: .live,
     userDefaultsClient: .live(),
-    storeKitClient: .live()
+    storeKitClient: .live(),
+    backgroundQueue: DispatchQueue(label: "background-queue").eraseToAnyScheduler(),
+    mainQueue: .main,
+    mainRunLoop: .main,
+    timeZone: { .autoupdatingCurrent }
   )
 }
