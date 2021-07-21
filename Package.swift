@@ -41,6 +41,7 @@ let package = Package(
         "DeviceStateModifier",
         "UserDefaultsClient",
         "FeedbackGeneratorClient",
+        "StoreKitClient",
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
       ]
     ),

@@ -31,6 +31,7 @@ extension AppEnvironment {
     build: .live,
     applicationClient: .live,
     feedbackGeneratorClient: .live,
-    userDefaultsClient: .live()
+    userDefaultsClient: .live(),
+    storeKitClient: .live()
   )
 }
