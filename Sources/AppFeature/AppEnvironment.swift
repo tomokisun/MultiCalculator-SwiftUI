@@ -1,10 +1,10 @@
 import Build
 import ComposableArchitecture
 import FeedbackGeneratorClient
+import StoreKitClient
 import UIApplicationClient
 import UIKit
 import UserDefaultsClient
-import StoreKitClient
 
 public struct AppEnvironment {
   public var setUserInterfaceStyle: (UIUserInterfaceStyle) -> Effect<Never, Never>
