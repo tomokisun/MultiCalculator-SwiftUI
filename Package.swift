@@ -23,6 +23,7 @@ let package = Package(
     .library(name: "FeedbackGeneratorClient", targets: ["FeedbackGeneratorClient"]),
     .library(name: "UserDefaultsClient", targets: ["UserDefaultsClient"]),
     .library(name: "UIApplicationClient", targets: ["UIApplicationClient"]),
+    .library(name: "StoreKitClient", targets: ["StoreKitClient"]),
   ],
   dependencies: [
     .package(
@@ -113,6 +114,12 @@ let package = Package(
     ),
     .target(
       name: "UIApplicationClient",
+      dependencies: [
+        .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+      ]
+    ),
+    .target(
+      name: "StoreKitClient",
       dependencies: [
         .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
       ]
