@@ -7,11 +7,11 @@ extension StoreKitClient {
 }
 
 #if DEBUG
-import XCTestDynamicOverlay
+  import XCTestDynamicOverlay
 
-extension StoreKitClient {
-  public static let failing = Self(
-    requestReview: { .failing("\(Self.self).requestReview is unimplemented") }
-  )
-}
+  extension StoreKitClient {
+    public static let failing = Self(
+      requestReview: { .failing("\(Self.self).requestReview is unimplemented") }
+    )
+  }
 #endif
