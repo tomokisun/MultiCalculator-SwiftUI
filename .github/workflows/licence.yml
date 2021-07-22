@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - run: make licenses
     - run: |
-      if (git diff --quiet --exit-code) ; then
-        git add App/MultiCalculator/Settings.bundle
-        git push origin HEAD
-      fi
+        if `git diff --quiet --exit-code` ; then
+          git add App/MultiCalculator/Settings.bundle
+          git push origin HEAD
+        fi
