@@ -1,9 +1,9 @@
-name: CI
+name: Licence
 
 on: [push]
 
 jobs:
-  licence:
+  generate:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v2
@@ -11,5 +11,6 @@ jobs:
     - run: |
         if `git diff --quiet --exit-code` ; then
           git add App/MultiCalculator/Settings.bundle
+          git commit -m"Run make licenses"
           git push origin HEAD
         fi

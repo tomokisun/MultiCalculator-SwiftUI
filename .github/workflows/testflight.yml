@@ -1,4 +1,4 @@
-name: testflight
+name: Testflight
 
 on:
   push:
