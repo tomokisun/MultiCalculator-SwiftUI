@@ -25,4 +25,5 @@ format:
 licenses:
 	swift run -c release \
 		--package-path Tools license-plist \
-		--output-path App/MultiCalculator/Settings.bundle
+		--output-path App/MultiCalculator/Settings.bundle \
+		--force
