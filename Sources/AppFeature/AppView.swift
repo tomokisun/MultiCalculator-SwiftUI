@@ -5,30 +5,25 @@ import SettingFeature
 import SwiftUI
 
 public struct AppState: Equatable {
-  public var multiCalculator: MultiCalculatorState = .init()
-  public var setting: SettingState
-
-  public init(
-    multiCalculator: MultiCalculatorState = .init(),
-    setting: SettingState = .init()
-  ) {
-    self.multiCalculator = multiCalculator
-    self.setting = setting
-  }
+  public var multiCalculator = MultiCalculatorState()
+  public var setting = SettingState()
+  public var appDelegate = AppDelegateState()
+  
+  public init() {}
 }
 
 public enum AppAction: Equatable {
+  case onAppear
   case multiCalculator(MultiCalculatorAction)
   case setting(SettingAction)
+  case appDelegate(AppDelegateAction)
 }
 
 extension AppEnvironment {
   var multiCalculator: MultiCalculatorEnvironment {
     .init(
       feedbackGeneratorClient: feedbackGeneratorClient,
-      userDefaultsClient: userDefaultsClient,
-      mainRunLoop: mainRunLoop,
-      storeKitClient: storeKitClient
+      userDefaultsClient: userDefaultsClient
     )
   }
   var setting: SettingEnvironment {
@@ -37,6 +32,9 @@ extension AppEnvironment {
       applicationClient: applicationClient,
       userDefaultsClient: userDefaultsClient
     )
+  }
+  var appDelegate: AppDelegateEnvironment {
+    .init(userDefaultsClient: userDefaultsClient)
   }
 }
 
@@ -54,18 +52,41 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
       action: /AppAction.setting,
       environment: \.setting
     ),
-
-  appReducerCore
-)
-
-let appReducerCore = Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
-  switch action {
-  case .multiCalculator:
-    return .none
-  case .setting:
-    return .none
+  
+  appDelegateReducer
+    .pullback(
+      state: \AppState.appDelegate,
+      action: /AppAction.appDelegate,
+      environment: \.appDelegate
+    ),
+  
+  Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
+    switch action {
+    case .onAppear:
+      let hasRequestReviewBefore = environment.userDefaultsClient.lastReviewRequestTimeinterval != 0
+      let timeSinceLastReviewRequest = environment.mainRunLoop.now.date.timeIntervalSince1970
+        - environment.userDefaultsClient.lastReviewRequestTimeinterval
+      let weekInSeconds: Double = 60 * 60 * 24 * 7
+      let openedAppCount = environment.userDefaultsClient.openedAppCount
+      
+      return openedAppCount > 3 && (!hasRequestReviewBefore || timeSinceLastReviewRequest >= weekInSeconds)
+        ? Effect.merge(
+          environment.userDefaultsClient.setLastReviewRequestTimeinterval(
+            environment.mainRunLoop.now.date.timeIntervalSince1970
+          )
+          .fireAndForget(),
+          environment.storeKitClient.requestReview().fireAndForget()
+        )
+        : Effect.none
+    case .multiCalculator:
+      return .none
+    case .setting:
+      return .none
+    case .appDelegate:
+      return .none
+    }
   }
-}
+)
 
 public struct AppView: View {
   let store: Store<AppState, AppAction>
@@ -111,6 +132,9 @@ public struct AppView: View {
       .navigationViewStyle(StackNavigationViewStyle())
       .zIndex(0)
       .modifier(DeviceStateModifier())
+      .onAppear {
+        viewStore.send(.onAppear)
+      }
     }
   }
 }
@@ -119,10 +143,7 @@ struct AppViewPreview: PreviewProvider {
   static var previews: some View {
     AppView(
       store: Store(
-        initialState: .init(
-          multiCalculator: .init(),
-          setting: .init(build: .noop)
-        ),
+        initialState: .init(),
         reducer: appReducer,
         environment: .noop
       )

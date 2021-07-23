@@ -9,22 +9,6 @@ public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, Calcul
   state, action, environment in
   
   switch action {
-  case .onAppear:
-    let hasRequestReviewBefore = environment.userDefaultsClient.lastReviewRequestTimeinterval != 0
-    let timeSinceLastReviewRequest = environment.mainRunLoop.now.date.timeIntervalSince1970
-      - environment.userDefaultsClient.lastReviewRequestTimeinterval
-    let weekInSeconds: Double = 60 * 60 * 24 * 7
-    let openedAppCount = environment.userDefaultsClient.openedAppCount
-    
-    return openedAppCount > 3 && (!hasRequestReviewBefore || timeSinceLastReviewRequest >= weekInSeconds)
-      ? Effect.merge(
-        environment.userDefaultsClient.setLastReviewRequestTimeinterval(
-          environment.mainRunLoop.now.date.timeIntervalSince1970
-        )
-        .fireAndForget(),
-        environment.storeKitClient.requestReview().fireAndForget()
-      )
-      : Effect.none
   case let .tappedButton(symbol):
     if Int(symbol) != nil {
       return environment.userDefaultsClient.hasCalculatorButtonTappedFeedback

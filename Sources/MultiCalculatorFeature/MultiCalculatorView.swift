@@ -3,7 +3,6 @@ import ComposableArchitecture
 import DeviceStateModifier
 import FeedbackGeneratorClient
 import SwiftUI
-import StoreKitClient
 import UserDefaultsClient
 
 public struct MultiCalculatorState: Equatable {
@@ -24,25 +23,17 @@ public enum MultiCalculatorAction: Equatable {
 public struct MultiCalculatorEnvironment {
   public var feedbackGeneratorClient: FeedbackGeneratorClient
   public var userDefaultsClient: UserDefaultsClient
-  public var mainRunLoop: AnySchedulerOf<RunLoop>
-  public var storeKitClient: StoreKitClient
   
   public init(
     feedbackGeneratorClient: FeedbackGeneratorClient,
-    userDefaultsClient: UserDefaultsClient,
-    mainRunLoop: AnySchedulerOf<RunLoop>,
-    storeKitClient: StoreKitClient
+    userDefaultsClient: UserDefaultsClient
   ) {
     self.feedbackGeneratorClient = feedbackGeneratorClient
     self.userDefaultsClient = userDefaultsClient
-    self.mainRunLoop = mainRunLoop
-    self.storeKitClient = storeKitClient
   }
   public static let noop = Self(
     feedbackGeneratorClient: .noop,
-    userDefaultsClient: .noop,
-    mainRunLoop: .immediate,
-    storeKitClient: .noop
+    userDefaultsClient: .noop
   )
 }
 
@@ -50,9 +41,7 @@ extension MultiCalculatorEnvironment {
   var calculator: CalculatorEnvironment {
     .init(
       feedbackGeneratorClient: feedbackGeneratorClient,
-      userDefaultsClient: userDefaultsClient,
-      mainRunLoop: mainRunLoop,
-      storeKitClient: storeKitClient
+      userDefaultsClient: userDefaultsClient
     )
   }
 }

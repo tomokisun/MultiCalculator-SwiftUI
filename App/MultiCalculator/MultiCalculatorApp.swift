@@ -5,18 +5,33 @@ import FeedbackGeneratorClient
 import SwiftUI
 import UserDefaultsClient
 
-@main
-struct MultiCalculatorApp: App {
-
+final class AppDelegate: NSObject, UIApplicationDelegate {
   let store = Store(
     initialState: .init(),
     reducer: appReducer,
     environment: .live
   )
+  lazy var viewStore = ViewStore(
+    self.store.scope(state: { _ in () }),
+    removeDuplicates: ==
+  )
+  
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil)
+  -> Bool {
+    self.viewStore.send(.appDelegate(.didFinishLaunching))
+    return true
+  }
+}
+
+@main
+struct MultiCalculatorApp: App {
+  @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
   var body: some Scene {
     WindowGroup {
-      AppView(store: store)
+      AppView(store: self.appDelegate.store)
     }
   }
 }
