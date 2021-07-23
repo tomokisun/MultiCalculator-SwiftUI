@@ -23,7 +23,7 @@ public enum MultiCalculatorAction: Equatable {
 public struct MultiCalculatorEnvironment {
   public var feedbackGeneratorClient: FeedbackGeneratorClient
   public var userDefaultsClient: UserDefaultsClient
-  
+
   public init(
     feedbackGeneratorClient: FeedbackGeneratorClient,
     userDefaultsClient: UserDefaultsClient

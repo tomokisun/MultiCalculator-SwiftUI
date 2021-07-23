@@ -8,7 +8,7 @@ public struct AppState: Equatable {
   public var multiCalculator = MultiCalculatorState()
   public var setting = SettingState()
   public var appDelegate = AppDelegateState()
-  
+
   public init() {}
 }
 
@@ -52,24 +52,26 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
       action: /AppAction.setting,
       environment: \.setting
     ),
-  
+
   appDelegateReducer
     .pullback(
       state: \AppState.appDelegate,
       action: /AppAction.appDelegate,
       environment: \.appDelegate
     ),
-  
+
   Reducer<AppState, AppAction, AppEnvironment> { state, action, environment in
     switch action {
     case .onAppear:
       let hasRequestReviewBefore = environment.userDefaultsClient.lastReviewRequestTimeinterval != 0
-      let timeSinceLastReviewRequest = environment.mainRunLoop.now.date.timeIntervalSince1970
+      let timeSinceLastReviewRequest =
+        environment.mainRunLoop.now.date.timeIntervalSince1970
         - environment.userDefaultsClient.lastReviewRequestTimeinterval
       let weekInSeconds: Double = 60 * 60 * 24 * 7
       let openedAppCount = environment.userDefaultsClient.openedAppCount
-      
-      return openedAppCount > 3 && (!hasRequestReviewBefore || timeSinceLastReviewRequest >= weekInSeconds)
+
+      return openedAppCount > 3
+        && (!hasRequestReviewBefore || timeSinceLastReviewRequest >= weekInSeconds)
         ? Effect.merge(
           environment.userDefaultsClient.setLastReviewRequestTimeinterval(
             environment.mainRunLoop.now.date.timeIntervalSince1970

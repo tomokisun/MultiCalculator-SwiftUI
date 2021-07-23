@@ -15,11 +15,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     self.store.scope(state: { _ in () }),
     removeDuplicates: ==
   )
-  
+
   func application(
     _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil)
-  -> Bool {
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+  )
+    -> Bool
+  {
     self.viewStore.send(.appDelegate(.didFinishLaunching))
     return true
   }

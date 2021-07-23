@@ -39,19 +39,19 @@ public struct UserDefaultsClient {
   public func setLandscapeCalculatorCount(_ integer: Int) -> Effect<Never, Never> {
     self.setInteger(integer, UserDefaultsClientKey.landscapeCalculatorCount)
   }
-  
+
   public var lastReviewRequestTimeinterval: Double {
     self.doubleForKey(UserDefaultsClientKey.lastReviewRequestTimeinterval)
   }
-  
+
   public func setLastReviewRequestTimeinterval(_ double: Double) -> Effect<Never, Never> {
     self.setDouble(double, UserDefaultsClientKey.lastReviewRequestTimeinterval)
   }
-  
+
   public var openedAppCount: Int {
     self.integerForKey(UserDefaultsClientKey.openedAppCount)
   }
-  
+
   public func setOpenedAppCount(_ integer: Int) -> Effect<Never, Never> {
     self.setInteger(integer, UserDefaultsClientKey.openedAppCount)
   }

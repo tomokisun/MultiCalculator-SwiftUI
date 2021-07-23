@@ -1,13 +1,13 @@
-import ComposableArchitecture
-import UserDefaultsClient
-import FeedbackGeneratorClient
 import Calculator
+import ComposableArchitecture
+import FeedbackGeneratorClient
+import UserDefaultsClient
 
 var calculator = Calculator()
 
 public let calculatorReducer = Reducer<CalculatorState, CalculatorAction, CalculatorEnvironment> {
   state, action, environment in
-  
+
   switch action {
   case let .tappedButton(symbol):
     if Int(symbol) != nil {
