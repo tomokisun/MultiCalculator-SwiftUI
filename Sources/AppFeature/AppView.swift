@@ -26,7 +26,9 @@ extension AppEnvironment {
   var multiCalculator: MultiCalculatorEnvironment {
     .init(
       feedbackGeneratorClient: feedbackGeneratorClient,
-      userDefaultsClient: userDefaultsClient
+      userDefaultsClient: userDefaultsClient,
+      mainRunLoop: mainRunLoop,
+      storeKitClient: storeKitClient
     )
   }
   var setting: SettingEnvironment {

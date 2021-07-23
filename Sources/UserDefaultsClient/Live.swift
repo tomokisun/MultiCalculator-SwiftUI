@@ -7,12 +7,18 @@ extension UserDefaultsClient {
     Self(
       boolForKey: userDefaults.bool(forKey:),
       integerForKey: userDefaults.integer(forKey:),
+      doubleForKey: userDefaults.double(forKey:),
       setBool: { value, key in
         .fireAndForget {
           userDefaults.set(value, forKey: key)
         }
       },
       setInteger: { value, key in
+        .fireAndForget {
+          userDefaults.set(value, forKey: key)
+        }
+      },
+      setDouble: { value, key in
         .fireAndForget {
           userDefaults.set(value, forKey: key)
         }
