@@ -21,14 +21,7 @@ public struct SupportAppView: View {
           Image(systemName: "star")
           Text("Leave us a review")
           Spacer()
-          Image(systemName: "chevron.right")
-            .foregroundColor(
-              .init(
-                red: 209 / 255,
-                green: 209 / 255,
-                blue: 213 / 255
-              )
-            )
+          ChevronImage()
         }
       }
 
@@ -37,14 +30,7 @@ public struct SupportAppView: View {
           Image(systemName: "person.2.fill")
           Text("Share with a friend!")
           Spacer()
-          Image(systemName: "chevron.right")
-            .foregroundColor(
-              .init(
-                red: 209 / 255,
-                green: 209 / 255,
-                blue: 213 / 255
-              )
-            )
+          ChevronImage()
         }
       }
       .sheet(isPresented: $isSharePresented) {
