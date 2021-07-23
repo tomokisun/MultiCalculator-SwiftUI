@@ -11,18 +11,34 @@ struct CalculatorCountSettingView: View {
   }
 
   var body: some View {
-    Section(header: Text("")) {
+    Section {
       HStack {
         Text("portrait")
         Spacer()
         Stepper(
           value: viewStore.binding(
-            get: { $0.portraitCount },
-            send: SettingAction.stepperChanged
-          )
-        ) {
-          Text("\(viewStore.portraitCount)")
-        }
+            keyPath: \.portraitCount,
+            send: SettingAction.binding
+          ),
+          in: 1...2,
+          label: {
+            Text(viewStore.portraitCount.description)
+          }
+        )
+      }
+      HStack {
+        Text("landscape")
+        Spacer()
+        Stepper(
+          value: viewStore.binding(
+            keyPath: \.landscapeCount,
+            send: SettingAction.binding
+          ),
+          in: 1...5,
+          label: {
+            Text(viewStore.landscapeCount.description)
+          }
+        )
       }
     }
   }

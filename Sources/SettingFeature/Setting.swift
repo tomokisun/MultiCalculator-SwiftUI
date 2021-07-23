@@ -8,7 +8,8 @@ import UserDefaultsClient
 public struct SettingState: Equatable {
   public var build: Build?
   public var enableFeedback: Bool
-  public var portraitCount = 0
+  public var portraitCount = 1
+  public var landscapeCount = 1
 
   public init(
     build: Build? = nil,
@@ -23,7 +24,6 @@ public enum SettingAction: Equatable {
   case onAppear
   case leaveUsAReviewButtonTapped
   case binding(BindingAction<SettingState>)
-  case stepperChanged(Int)
 }
 
 public struct SettingEnvironment {
@@ -62,14 +62,19 @@ public let settingReducer = Reducer<SettingState, SettingAction, SettingEnvironm
       )
       .fireAndForget()
   case .binding(\.enableFeedback):
-    state.enableFeedback = !state.enableFeedback
     return environment.userDefaultsClient
       .setHasCalculatorButtonTappedFeedback(state.enableFeedback)
       .fireAndForget()
+  case .binding(\.portraitCount):
+    return environment.userDefaultsClient
+      .setPortraitCalculatorCount(state.portraitCount)
+      .fireAndForget()
+  case .binding(\.landscapeCount):
+    return environment.userDefaultsClient
+      .setLandscapeCalculatorCount(state.landscapeCount)
+      .fireAndForget()
   case .binding:
-    return .none
-  case let .stepperChanged(count):
-    state.portraitCount = count
     return .none
   }
 }
+.binding(action: /SettingAction.binding)

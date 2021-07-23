@@ -17,23 +17,8 @@ public struct SettingView: View {
       Form {
         SupportAppView(store: store)
         FeedbackSettingView(store: store)
-        Section(header: Text("")) {
-          HStack {
-            Text("version")
-            Spacer()
-            if let version = viewStore.build?.version() {
-              Text(version)
-            }
-          }
-          HStack {
-            Text("number")
-            Spacer()
-            if let number = viewStore.build?.number() {
-              Text(number)
-            } else {
-            }
-          }
-        }
+        CalculatorCountSettingView(store: store)
+        BuildView(store: store)
       }
       .navigationStyle(
         backgroundColor: colorScheme == .light ? .white : .black,
