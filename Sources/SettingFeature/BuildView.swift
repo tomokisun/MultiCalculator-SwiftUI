@@ -11,7 +11,7 @@ struct BuildView: View {
     self.store = store
     self.viewStore = ViewStore(self.store)
   }
-  
+
   var body: some View {
     Section {
       HStack {
