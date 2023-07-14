@@ -3,6 +3,7 @@ import DeviceStateModifier
 import MultiCalculatorFeature
 import SettingFeature
 import SwiftUI
+import StoreKit
 
 public struct AppState: Equatable {
   public var multiCalculator = MultiCalculatorState()
@@ -93,6 +94,7 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 public struct AppView: View {
   let store: Store<AppState, AppAction>
   @Environment(\.colorScheme) var colorScheme
+  @Environment(\.requestReview) var requestReview
 
   public init(
     store: Store<AppState, AppAction>
@@ -136,6 +138,7 @@ public struct AppView: View {
       .modifier(DeviceStateModifier())
       .onAppear {
         viewStore.send(.onAppear)
+        requestReview()
       }
     }
   }
